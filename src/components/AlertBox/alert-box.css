@@ -1,0 +1,85 @@
+
+
+.alert-box--modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    cursor: pointer;
+    top: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+}
+
+.alert-box--modal.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.alert-box--container {
+    width: 90%;
+    max-width: 45ch;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+    cursor: initial;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 5px;
+}
+
+.alert-box--container > * + * {
+    margin-top: 10px;
+}
+
+.alert-box--container > *:not(hr):not(.actions) {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.alert-box--container hr {
+    background-color: #eee;
+    height: 1px;
+
+}
+
+.alert-box--container .title {
+    font-weight: normal;
+}
+
+.alert-box--container.success .title {
+    color: #4caf50;
+}
+
+.alert-box--container.error .title {
+    color: #ff4436;
+}
+
+.alert-box--container .description {
+    line-height: 24px;
+}
+
+.alert-box--container .actions {
+    align-self: flex-end;
+}
+
+.alert-box--container input[type="button"] {
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    font-size: 0.9rem;
+    color: white;
+    cursor: pointer;
+    background: #4caf50;
+}
+
+.alert-box--container.error input[type="button"] {
+    background: #ff4436;
+}

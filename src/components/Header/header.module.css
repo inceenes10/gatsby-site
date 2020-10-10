@@ -1,0 +1,119 @@
+
+/*
+    2. HEADER DESKTOP
+    3. HEADER MOBILE
+    4. SEARCH ICON
+    5. SUBMENU DESKTOP
+    6. SUBMENU MOBILE
+    7. MODAL
+*/
+
+
+
+/*
+*** HEADER DESKTOP ***
+*/
+
+
+.header {
+    z-index: 1;
+    width: 100%;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    position: sticky;
+    top: 0;
+}
+
+.headerHero {
+    position: relative;
+}
+
+.menu {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: stretch;
+    justify-content: center;
+}
+
+
+
+.menu .menuItem {
+    display: flex;
+    padding: 0 12.5px;
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+    align-items: center;
+}
+
+.menu .menuItem:hover {
+    color: rgba(0,0,0,0.87);
+    background: #eee;
+}
+
+.menu .menuItem.dropdownMenu {
+    user-select: none;
+    cursor: pointer;
+}
+
+.menu .menuItem.dropdownMenu:after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: url("../../images/expand_more.svg") no-repeat center;
+    float: right;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+
+
+/*
+*** HEADER MOBILE
+*/
+
+
+.heroMobile {
+    display: none;
+}
+
+.heroMobile .menu {
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+
+
+
+/*
+*** SEARCH ICON
+*/
+
+.searchIcon {
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.searchIcon,
+.hamburger-menu {
+    cursor: pointer;
+    align-self: center;
+}
+
+.searchIcon:hover,
+.searchIcon:focus {
+    background: #eee;
+}
+
+
+
+
+@media (max-width: 800px) {
+    .headerHero {
+        display: none;
+    }
+    .heroMobile {
+        display: block;
+    }
+}

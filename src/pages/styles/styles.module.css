@@ -1,0 +1,15 @@
+.container {
+    width: min(55ch, 90%);
+    margin: 50px auto 100px;
+    line-height: 32px;
+}
+
+.container > * {
+    margin-top: 30px;
+}
+
+
+.comment-container {
+    width: min(65ch, 90%);
+    margin: 30px auto;
+}

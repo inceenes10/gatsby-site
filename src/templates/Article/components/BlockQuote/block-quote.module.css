@@ -1,0 +1,60 @@
+
+
+.blockquote-container {
+    border: 4px solid #eee;
+    border-radius: 10px;
+    position: relative;
+    max-width: 100% !important;
+    margin: 50px auto 75px !important;
+    font-size: 16px;
+}
+
+.blockquote-container img.quotation-marks {
+    width: 50px;
+    height: 50px;
+}
+
+.blockquote-container > * {
+    padding: 0 20px;
+}
+
+.blockquote-container > legend {
+    margin-left: 20px;
+}
+
+.blockquote-container figure {
+    padding-bottom: 25px;
+}
+
+.blockquote-container figure > * + * {
+    margin-top: 10px;
+}
+
+
+
+.blockquote-container blockquote {
+}
+
+
+.blockquote-container figure figcaption {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.blockquote-container figure figcaption img {
+    border-radius: 25px;
+    filter: grayscale(25%);
+}
+
+.blockquote-container .legend-close {
+    position: absolute;
+    bottom: -25px;
+    right: 20px;
+    background: #fff;
+    line-height:1.2em;
+}
+
+.blockquote-container .legend-close img {
+    transform: rotate(180deg);
+}

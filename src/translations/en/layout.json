@@ -1,0 +1,9 @@
+{
+  "home": "Home",
+  "about": "About Me",
+  "contact": "Contact Me",
+  "publish_at": "Publish At {date}",
+  "last_update": "Last update: {date}",
+  "share_with_web_api": "share",
+  "sponsored": "Sponsored"
+}

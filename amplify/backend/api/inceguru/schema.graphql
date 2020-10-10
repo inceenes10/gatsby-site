@@ -1,0 +1,81 @@
+type Article @model
+@key(name: "byCategory", fields: ["categoryId"])
+@auth(rules: [
+{ allow: public, operations: [read] }
+]) {
+  id: ID!
+  title: String!
+  description: String!
+  categoryId: ID!
+  category: Category @connection(fields: ["categoryId"])
+  slug: String!
+  lang: String!
+  body: String!
+  youtubeVideo: AWSJSON
+  image: AWSJSON
+  metadata: AWSJSON
+  tags: [ArticleTag] @connection(keyName: "byArticle", fields: ["id"])
+  status: ArticleStatus
+  redirect: String
+}
+type ArticleTag @model
+@key(name: "byArticle", fields: ["articleId", "tagId"])
+@key(name: "byTag", fields: ["tagId", "articleId"])
+@auth(rules: [
+{ allow: public, operations: [read] }
+]) {
+id: ID!
+articleId: ID!
+tagId: ID!
+tags: Tag @connection(fields: ["tagId"])
+articles: Article @connection(fields: ["articleId"])
+}
+type Tag @model
+@auth(rules: [
+{ allow: public, operations: [read] }
+]) {
+id: ID!
+name: String!
+slug: String!
+lang: String!
+articles: [ArticleTag] @connection(keyName: "byTag", fields: ["id"])
+}
+
+enum ArticleStatus {
+DRAFT
+ARCHIVED
+PUBLISHED
+}
+
+
+
+
+type Category @model
+@auth(rules: [
+{ allow: public, operations: [read] }
+]) {
+  id: ID!
+  name: String!
+  slug: String!
+  lang: String!
+  articles: [Article] @connection(keyName: "byCategory", fields: ["id"])
+}
+
+
+type SubscribedUser {
+id: ID!
+email: AWSEmail!
+lang: String!
+}
+
+
+type Contact {
+id: ID!
+firstname: String!
+lastname: String!
+email: AWSEmail!
+phoneNumber: AWSPhone
+country: String
+content: String!
+markAsRead: Boolean!
+}

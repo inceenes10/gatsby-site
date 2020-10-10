@@ -1,0 +1,48 @@
+
+
+
+.article {
+    flex-grow: 0;
+    width: 90%;
+    line-height: 32px;
+    font-size: 17px;
+    margin: 50px auto;
+    max-width: 65ch;
+}
+
+
+.jsx-parser > *:not(.youtube-video--container):not(img) {
+    max-width: 55ch;
+    margin: 30px auto;
+}
+
+.article h2 {
+    font-size: 24px;
+}
+
+.article h3 {
+    font-size: 21px;
+}
+
+.article h2, .article h3 {
+    display: inline;
+    cursor: pointer;
+}
+
+.article h2:hover, .article h3:hover {
+    color: rgba(0,0,0,0.5);
+    text-decoration: underline;
+}
+
+
+.three-dot--container {
+    display: flex;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+
+.article-comment--container {
+    width: min(65ch, 90%);
+    margin: 30px auto;
+}

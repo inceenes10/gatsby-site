@@ -1,0 +1,18 @@
+.tags {
+    margin: 50px 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tags .tag {
+    margin: 5px;
+    padding: 0 12.5px;
+    background: #eee;
+    border-radius: 20px;
+    color: rgb(246, 58, 106);
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9rem;
+    transition: all 0.2s ease-in-out;
+}

@@ -1,0 +1,98 @@
+
+.aside {
+    position: fixed;
+    height: 100vh;
+    width: 250px;
+    background: white;
+    top: 0;
+    left: -250px;
+    z-index: 2;
+    transition: all 0.15s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.aside.active {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    left: 0;
+}
+
+.aside img {
+    align-self: center;
+    width: 150px;
+}
+
+.hero {
+    margin-top: 10px;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.hero > img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.hero * {
+    color: rgba(0,0,0,0.6);
+}
+
+.list-item {
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+}
+
+.list-item:hover {
+    color: rgba(0,0,0,0.8);
+}
+
+/*
+*** SUBMENU
+*/
+
+.list-item.dropdownMenu {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+aside .list-item.dropdownMenu img {
+    width: 20px;
+    height: 20px;
+    transform: rotate(-90deg);
+}
+
+.list-item.dropdownMenu *:hover {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+
+.copy-right {
+    border-top: 1px solid #eee;
+    padding: 10px 0;
+}
+
+
+
+.modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index:-1;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+}
+
+.modal.active {
+    visibility: visible;
+    z-index: 1;
+    background: rgba(0,0,0,0.1);
+}
+

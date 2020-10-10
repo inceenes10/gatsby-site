@@ -1,0 +1,34 @@
+.share-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.share-container > a {
+    display: flex;
+    align-items: center;
+}
+
+
+
+.share-container > a + a {
+    margin-left: 10px;
+}
+.share-container img {
+    border-radius: 5px;
+}
+
+
+.webshare-api--button {
+    padding: 10px 20px;
+    align-self: center;
+    font-family: "Source Code Pro", monospace, "Work Sans", sans-serif;
+    cursor: pointer;
+    font-size: 16px;
+    color: #1F618D;
+    background: white;
+    border: 4px solid #1F618D;
+    user-select: none;
+    text-transform: uppercase;
+    border-radius: 10px;
+}
