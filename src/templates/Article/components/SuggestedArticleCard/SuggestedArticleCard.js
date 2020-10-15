@@ -92,7 +92,7 @@ class SuggestedArticleCard extends React.Component {
 
                     </div>
                     <div className={styles.relatedContentContainer}>
-                        {t('ilgili içerik')}
+                        {t('related_content')}
                     </div>
                 </div>
             );
