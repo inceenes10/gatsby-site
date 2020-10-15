@@ -9,6 +9,8 @@ class Pagination extends React.Component {
 
     render() {
 
+        const { t } = useTranslation();
+
         const { pageNum, currentPage } = this.props;
 
         if (pageNum === 1) return null;
@@ -32,7 +34,7 @@ class Pagination extends React.Component {
 
         return (
             <div className={styles.container}>
-                <LocalizedLink className={styles.item}>Prev</LocalizedLink>
+                <LocalizedLink className={styles.item}>{t('prev')}</LocalizedLink>
                 {
                     arr.map(item => {
                         if (item === '···') {
@@ -45,7 +47,7 @@ class Pagination extends React.Component {
                         )
                     })
                 }
-                <LocalizedLink className={styles.item}>Next</LocalizedLink>
+                <LocalizedLink className={styles.item}>{t('next')}</LocalizedLink>
             </div>
         )
     }

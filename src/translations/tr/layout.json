@@ -6,5 +6,8 @@
   "publish_at": "Yayınlanma Tarihi: {date}",
   "last_udpate": "Son güncelleme: {date}",
   "share_with_web_api": "paylaş",
-  "sponsored": "Sponsorlu"
+  "sponsored": "Sponsorlu",
+  "prev": "Önceki",
+  "next": "Sonraki",
+  "related_content": "İLGİLİ İÇERİK"
 }

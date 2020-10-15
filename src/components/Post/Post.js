@@ -4,7 +4,7 @@ import YoutubeVideoIframe from "../YoutubeVideoIframe/YoutubeVideoIframe"
 import { PageContext } from "../../Context/PageContext"
 import { Link } from "gatsby";
 import moment from "moment";
-import { getDefaultLanguage, localesInfo, useTranslation } from "../../Hooks/Translation"
+import { getDefaultLanguage, localesInfo } from "../../Hooks/Translation"
 
 
 class Post extends React.Component {
@@ -12,15 +12,13 @@ class Post extends React.Component {
     static contextType = PageContext;
 
     render() {
-
-        const { t } = useTranslation();
         const lang = getDefaultLanguage();
         const readtime = 5;
         //const { category, title, description, date, slug, image, youtubeVideoIframe } = this.props.data;
 
-        const { title, description, category, image, redirect, slug, status, youtubeVideo, createdAt, updatedAt } = this.props.article;
+        const { title, description, category, image, slug, youtubeVideo, createdAt } = this.props.article;
 
-        let date = moment(new Date(createdAt)).fromNow();
+        let date = moment(new Date(createdAt)).fromNow(localesInfo[lang].dateFormatting);
 
         if (youtubeVideo) {
             return (

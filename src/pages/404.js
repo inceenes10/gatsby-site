@@ -17,7 +17,7 @@ function NotFoundPage() {
                 <p>
 
                     The page what you're looking for may be removed, moved or
-                    temporarily unavailable. <Link to="/">Return back to home page → 🏠️</Link>
+                    temporarily unavailable. <Link to="/">Return back to home page → <span role="img" aria-label="Go to Home Page">🏠️</span></Link>
                 </p>
             </div>
         </Layout>

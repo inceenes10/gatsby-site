@@ -5,6 +5,7 @@ import query from "./suggested-article--query";
 import isEmptyObject from "is-empty-object";
 import { Link } from "gatsby";
 import moment from "moment";
+import { useTranslation } from "../../../../Hooks/Translation"
 
 class SuggestedArticleCard extends React.Component {
 
@@ -28,13 +29,9 @@ class SuggestedArticleCard extends React.Component {
     }
 
 
-
-
     shouldComponentUpdate(nextProps, nextState, nextContext) {
 
-        if (this.state.article === nextState.article)
-            return false;
-        return true;
+        return this.state.article !== nextState.article;
     }
 
     componentDidMount() {
@@ -45,7 +42,6 @@ class SuggestedArticleCard extends React.Component {
 
 
     fetchData = () => {
-        return false;
         const { slug, lang } = this.props;
 
         API.graphql({
@@ -59,12 +55,14 @@ class SuggestedArticleCard extends React.Component {
             };
             this.setState({ article: article })
         }).catch(() => {
-            alert("Sunucudan veri çekilirken bir hata oluştu");
+            alert("An error occured when fetching data from the server.");
         })
     }
 
     render() {
         const { article } = this.state;
+
+        const { t } = useTranslation();
 
         const date = new Date(article.createdAt);
         const createdAt = moment(date).fromNow();
@@ -94,7 +92,7 @@ class SuggestedArticleCard extends React.Component {
 
                     </div>
                     <div className={styles.relatedContentContainer}>
-                        İLGİLİ İÇERİK
+                        {t('ilgili içerik')}
                     </div>
                 </div>
             );
@@ -103,7 +101,7 @@ class SuggestedArticleCard extends React.Component {
         return (
             <div className={`${styles.container} ${styles.flexColumn}`}>
                 <div className={styles.relatedContentContainer}>
-                    İLGİLİ İÇERİK
+                    {t('related_content')}
                 </div>
 
 

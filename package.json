@@ -18,10 +18,8 @@
   "dependencies": {
     "aws-amplify": "^3.3.3",
     "browser-monads": "^1.0.0",
-    "dateformat": "^3.0.3",
     "disqus-react": "^1.0.10",
     "gatsby": "^2.24.66",
-    "gatsby-awesome-pagination": "^0.3.6",
     "gatsby-plugin-anchor-links": "^1.1.1",
     "gatsby-plugin-canonical-urls": "^2.3.13",
     "gatsby-plugin-i18n": "^1.0.1",
@@ -43,10 +41,6 @@
     "react-helmet": "^6.1.0",
     "react-i18next": "^11.7.3",
     "react-jsx-parser": "^1.25.1",
-    "react-multi-lang": "^2.1.1",
-    "react-player": "^2.6.2",
-    "react-router-dom": "^5.2.0",
-    "react-router-hash-link": "^2.1.0",
     "use-dynamic-refs": "^1.0.0"
   },
   "devDependencies": {

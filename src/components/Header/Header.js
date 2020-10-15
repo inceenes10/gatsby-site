@@ -26,24 +26,24 @@ function Header() {
                 <div className={styles.headerHero}>
                     <nav className={styles.menu}>
 
-                        <LocalizedLink className={styles.menuItem}>{t("home")}</LocalizedLink>
+                        <LocalizedLink tabindex="0" role="menuitem" className={styles.menuItem}>{t("home")}</LocalizedLink>
 
 
-                        <div className={styles.menuItem + " " + styles.dropdownMenu} onMouseEnter={() => setIsOpenBlogSubmenu(true)} onMouseLeave={() => setIsOpenBlogSubmenu(!isOpenBlogSubmenu)}>
+                        <div role="menuitem" tabindex="0" className={styles.menuItem + " " + styles.dropdownMenu} onMouseEnter={() => setIsOpenBlogSubmenu(true)} onMouseLeave={() => setIsOpenBlogSubmenu(!isOpenBlogSubmenu)}>
                             Blog
                         </div>
 
-                        <LocalizedLink className={styles.menuItem} to="/about">{t("about")}</LocalizedLink>
+                        <LocalizedLink role="menuitem" tabindex="0" className={styles.menuItem} to="/about">{t("about")}</LocalizedLink>
 
-                        <LocalizedLink className={styles.menuItem} to="/contact">{t("contact")}</LocalizedLink>
+                        <LocalizedLink role="menuitem" tabindex="0" className={styles.menuItem} to="/contact">{t("contact")}</LocalizedLink>
 
-                        <Link className={styles.menuItem} to="/tr">
+                        <Link role="menuitem" tabindex="0" className={styles.menuItem} to="/tr">
                             <img src={require("./images/turkey.svg")} height={32} alt="" loading="lazy"/>
                         </Link>
-                        <Link className={styles.menuItem} to="/">
+                        <Link role="menuitem" tabindex="0" className={styles.menuItem} to="/">
                             <img src={require("./images/great-britain.svg")} height={32} alt="" loading="lazy"/>
                         </Link>
-                        <LocalizedLink to="/search" className={styles.searchIcon}>
+                        <LocalizedLink role="menuitem" tabindex="0" to="/search" className={styles.searchIcon}>
                             <img src={SearchIcon} alt="Search" />
                         </LocalizedLink>
 
@@ -60,7 +60,9 @@ function Header() {
                             {
                                 ({ _, toggle }) => {
                                     return (
-                                        <img src={HamburgerMenuIcon} alt="Hamburger Menu" className={styles.hamburgerMenu} onClick={toggle} />
+                                        <div className={styles.hamburgerMenu} role="menuitem" tabIndex={0} onClick={toggle} onKeyDown={toggle}>
+                                            <img src={HamburgerMenuIcon} alt="Hamburger Menu" />
+                                        </div>
                                     );
                                 }
                             }

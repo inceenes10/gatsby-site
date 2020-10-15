@@ -7,8 +7,9 @@ import { PageContext } from "../../Context/PageContext";
 
 const ArticleSEO = (props) => {
 
-    const { article, canonicalURL } = props;
+    const { pageContext: { location, article } } = React.useContext(PageContext)
     const { metadata } = article;
+    const canonicalURL = `${location.origin}${location.pathname}`;
 
     const lang = getDefaultLanguage();
     return (

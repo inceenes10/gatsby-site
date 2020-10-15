@@ -29,7 +29,9 @@ function SideMenu() {
 
 
         const html = <ul className={styles.hero} key={Math.random()}>
-            <img src={require("../../images/back.svg")} alt="Back Icon" onClick={() => closeSubmenu(backCategories)}/>
+            <div role="button" tabIndex={0} onClick={() => closeSubmenu(backCategories)} onKeyDown={() => closeSubmenu(backCategories)}>
+                <img src={require("../../images/back.svg")} alt="Back Icon"/>
+            </div>
             {
                 categories.map((category) => {
                     return (
@@ -37,7 +39,7 @@ function SideMenu() {
                             {!category.subCategories && <Link to={"/" + lang + "/category/" + category.slug} onClick={() => closeSidebar()}>
                                 <li className={styles.listItem}>{category.name}</li>
                             </Link>}
-                            {category.subCategories && <li className={`${styles.listItem} ${styles.dropdownMenu}`} onClick={() => openSubmenu(category.subCategories, categories)}>
+                            {category.subCategories && <li role="presentation" className={`${styles.listItem} ${styles.dropdownMenu}`} onKeyDown={() => openSubmenu(category.subCategories, categories)} onClick={() => openSubmenu(category.subCategories, categories)}>
                                 <span>{category.name}</span>
                                 <img src={ExpandMoreIcon} alt="expand more"/></li>}
                         </React.Fragment>
@@ -93,11 +95,13 @@ function SideMenu() {
                 }}
                      ref={SidebarHeroRef}>
                     <ul className={styles.hero} >
-                        <img src={require("../../images/back.svg")} alt="back icon" style={{visibility: "hidden"}}/>
+                        <div >
+                            <img src={require("../../images/back.svg")} alt="Back Icon" style={{visibility: "hidden"}}/>
+                        </div>
                         <Link to="/tr" onClick={() => closeSidebar()}>
                             <li className={styles.listItem}>{t("Home")}</li>
                         </Link>
-                        <li className={`${styles.listItem} ${styles.dropdownMenu}`} onClick={() => openSubmenu(blogCategories)}>
+                        <li role="presentation" className={`${styles.listItem} ${styles.dropdownMenu}`} onClick={() => openSubmenu(blogCategories)}>
                             <span>Blog</span>
                             <img src={ExpandMoreIcon} alt="expand more"/>
                         </li>
@@ -117,7 +121,7 @@ function SideMenu() {
                     Enes ince &copy; Tüm hakları saklıdır.
                 </span>
             </aside>
-            <div className={isOpen ? `${styles.modal} ${styles.active}` : styles.modal} onClick={() => closeSidebar()}></div>
+            <div className={isOpen ? `${styles.modal} ${styles.active}` : styles.modal} onKeyDown={() => closeSidebar()} onClick={() => closeSidebar()} role="button" tabIndex={0} aria-label="close side menu"></div>
         </React.Fragment>
 
 

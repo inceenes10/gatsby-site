@@ -76,6 +76,15 @@ module.exports = {
                 }]
             },
         },
+        {
+            resolve: `gatsby-plugin-offline`,
+            options: {
+                precachePages: [
+                    '/*/category/*',
+                    '/', "/tr", '/*/about'
+                ],
+            },
+        },
     ],
     siteMetadata: {
         siteUrl: 'https://ince.guru'

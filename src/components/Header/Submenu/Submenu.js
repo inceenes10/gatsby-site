@@ -1,7 +1,7 @@
 import blogCategories from "../../Data/categories";
 import useDynamicRefs from "use-dynamic-refs";
 import React, { useEffect } from "react";
-import { Link, useStaticQuery } from "gatsby";
+import { Link } from "gatsby";
 import styles from "./submenu.module.css";
 import { getDefaultLanguage } from "../../../Hooks/Translation"
 
@@ -33,24 +33,26 @@ const Submenu = props => {
         prevPanel = firstPanel;
     });
 
+    const parentCategoryHover = (event) => {
+        if (prevPanel !== null)
+            prevPanel.current.style.display = "none";
+        const index = event.target.getAttribute("data-index");
+        const panel = getSubCategoryPanelRef(index + "");
+        panel.current.style.display = "block";
+        prevPanel = panel;
+    }
+
     return (
-        <div onMouseEnter={() => props.setIsOpenBlogSubmenu(true) } onMouseLeave={ () => props.setIsOpenBlogSubmenu(false) }>
+        <div onMouseEnter={() => props.setIsOpenBlogSubmenu(true) } onMouseLeave={ () => props.setIsOpenBlogSubmenu(false) } role="button" tabIndex="0">
             <div style={{height: props.isOpenBlogSubmenu ? 5 : 0, width: 640, left: "calc(50% - 320px)", position: "absolute", top: "50px",zIndex: props.isOpenBlogSubmenu ? 2 : -1}}></div>
             <div className={props.isOpenBlogSubmenu ? styles.submenu + " " + styles.active : styles.submenu}>
                 <ul className={styles.items}>
                     {
                         blogCategories[lang].map((category, index) => {
                             if (typeof category.subCategories !== "undefined") {
-                                return (<a data-index={index} key={category.slug + Math.random()} onMouseOver={(event) => {
-                                    if (prevPanel !== null)
-                                        prevPanel.current.style.display = "none";
-                                    const index = event.target.getAttribute("data-index");
-                                    const panel = getSubCategoryPanelRef(index + "");
-                                    panel.current.style.display = "block";
-                                    prevPanel = panel;
-                                }}>
+                                return (<button href={null} data-index={index} key={category.slug + Math.random()} tabIndex="0" onFocus={parentCategoryHover} onMouseOver={parentCategoryHover}>
                                     <li data-index={index}>{category.name}</li>
-                                </a>)
+                                </button>)
                             }
 
                             return (<Link onClick={() => {
@@ -93,11 +95,11 @@ const Submenu = props => {
                 }
 
             </div>
-            <div className={props.isOpenBlogSubmenu ? styles.modal + " " + styles.active : styles.modal} onMouseEnter={() => {
+            <div className={props.isOpenBlogSubmenu ? styles.modal + " " + styles.active : styles.modal} tabIndex={0} role="button" onMouseEnter={() => {
                 if (prevPanel !== null)
                     prevPanel.current.style.display = "none";
                 props.setIsOpenBlogSubmenu(false)
-            }}></div>
+            }} aria-label="close the modal"></div>
         </div>
     );
 };

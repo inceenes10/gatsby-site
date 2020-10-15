@@ -9,11 +9,6 @@ class Gist extends React.Component {
         id: "", file: ""
     }
 
-    constructor(props) {
-        super(props)
-    }
-
-
     componentDidMount() {
         const { id, file } = this.props;
         this.setState({
