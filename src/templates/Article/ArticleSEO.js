@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import Layout from "../../layouts"
 import { getDefaultLanguage } from "../../Hooks/Translation"
-import { PageContext } from "./context/PageContext";
+import { PageContext } from "../../Context/PageContext";
 
 
 const ArticleSEO = (props) => {

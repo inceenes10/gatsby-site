@@ -1,0 +1,19 @@
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.item {
+    border-radius: 3px;
+    border: 2px solid #eee;
+    margin: 10px 0 0 10px;
+    padding: 5px;
+    user-select: none;
+}
+
+.item.active {
+    background: #eee;
+}

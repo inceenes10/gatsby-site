@@ -8,7 +8,7 @@
   "scripts": {
     "build": "gatsby build",
     "build-stage": "env-cmd -f .env.development gatsby build",
-    "dev": "gatsby develop",
+    "dev": "env-cmd -f .env.development gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
@@ -21,6 +21,7 @@
     "dateformat": "^3.0.3",
     "disqus-react": "^1.0.10",
     "gatsby": "^2.24.66",
+    "gatsby-awesome-pagination": "^0.3.6",
     "gatsby-plugin-anchor-links": "^1.1.1",
     "gatsby-plugin-canonical-urls": "^2.3.13",
     "gatsby-plugin-i18n": "^1.0.1",

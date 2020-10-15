@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import styles from "./article-page-info-and-title.module.css";
 import moment from "moment";
 import { getDefaultLanguage, localesInfo, useTranslation } from "../../../../Hooks/Translation"
-import { PageContext } from "../../context/PageContext"
+import { PageContext } from "../../../../Context/PageContext"
 
 
 function ArticlePageInfoAndTitle(props) {

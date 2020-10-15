@@ -1,7 +1,7 @@
 import React from "react";
 import './post.css';
 import YoutubeVideoIframe from "../YoutubeVideoIframe/YoutubeVideoIframe"
-import { PageContext } from "../../templates/Article/context/PageContext"
+import { PageContext } from "../../Context/PageContext"
 import { Link } from "gatsby";
 import moment from "moment";
 import { getDefaultLanguage, localesInfo, useTranslation } from "../../Hooks/Translation"

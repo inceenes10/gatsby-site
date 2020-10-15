@@ -1,167 +1,124 @@
-const path = require(`path`);
-const isEmptyObject = require("is-empty-object");
+const path = require(`path`)
+const isEmptyObject = require("is-empty-object")
+const query = require('./nodeHelpers/query');
 
-exports.onCreatePage = function () {
-    console.log('merhaba dünya');
+const groupByLang = require("./nodeHelpers/groupByLang");
+
+
+
+exports.onCreatePage = function ({ actions: { deletePage }, page }) {
+    if (page.componentPath.includes("index")) {
+        deletePage(page)
+    }
 }
 
 exports.createPages = async ({ graphql, actions}) => {
 
-    const { createPage } = actions;
+    const { createPage } = actions
 
-    const result = await graphql(`
-        query {
-            appsync {
-                listArticles {
-                    items {
-                        id
-                        title
-                        description
-                        category {
-                            name
-                            slug
-                            lang
-                        }
-                        slug
-                        lang
-                        body
-                        youtubeVideo
-                        image
-                        metadata
-                        tags {
-                            items {
-                                tags {
-                                    slug
-                                    name
-                                    lang
-                                }
-                            }
-                        }
-                        status
-                        redirect
-                        createdAt
-                        updatedAt
-                    }
-                }
-                listCategorys {
-                    items {
-                        name
-                        slug
-                        lang
-                        articles {
-                            items {
-                                title
-                                description
-                                image
-                                createdAt
-                                status
-                                slug
-                                redirect
-                                lang
-                                updatedAt
-                                youtubeVideo
-                            }
-                        }
-                    }
-                }
-                listTags {
-                    items {
-                        name
-                        slug
-                        lang
-                        articles {
-                            items {
-                                articles {
-                                    title
-                                    description
-                                    image
-                                    createdAt
-                                    status
-                                    slug
-                                    redirect
-                                    lang
-                                    updatedAt
-                                    youtubeVideo
-                                    category {
-                                        name
-                                        slug
-                                        lang
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    `)
+    const result = await graphql(query);
 
     const { listArticles, listCategorys, listTags } = result.data.appsync;
 
-    const indexPageCount = Math.ceil(listArticles.items.length / 10);
+    listArticles.items.map(item => {
+        item.metadata = JSON.parse(item.metadata);
+        item.image = JSON.parse(item.image);
+        item.youtubeVideo = JSON.parse(item.youtubeVideo);
+        return item;
+    })
 
+    const articlesByLanguage = groupByLang(listArticles.items);
+
+    for (let i = 0; i < Object.keys(articlesByLanguage).length; i++) {
+        const lang = Object.keys(articlesByLanguage)[i];
+
+
+        for (let j = 0; j < articlesByLanguage[lang].length; j++) {
+            const articlesByLangByPage = articlesByLanguage[lang].slice(j * 10, j * 10 + 10);
+
+            let _path = '';
+
+            if (j === 0) {
+
+                if (lang === "en") {
+                    _path = "/"
+                } else
+                    _path = `/${lang}`
+            }
+            else
+                _path = `/${lang}/page/${j + 1}`
+
+            createPage({
+                context: {
+                    articles: articlesByLangByPage, currentPage: j + 1, pageNum: articlesByLangByPage.length
+                },
+                path: _path,
+                component: path.resolve(`./src/templates/Home/index.${lang}.js`)
+            })
+
+        }
+    }
 
 
     listArticles.items.map(item => {
         createPage({
-            context: { article: { ...item, metadata: JSON.parse(item.metadata) } },
+            context: { article: { ...item } },
             path: `/${item.lang}/article/${item.slug}`,
             component: path.resolve("./src/templates/Article/article.js")
         })
-
-
-
     })
 
     listCategorys.items.map(item => {
 
-        const articles = item.articles.items;
-        const articleCount = articles.length;
-        const articlePageCount = Math.ceil(articleCount / 10);
+        const articles = item.articles.items
+        const articleCount = articles.length
+        const articlePageCount = Math.ceil(articleCount / 10)
 
         for (let i = 0; i < articlePageCount; i++) {
             let pageArticles = articles.slice(i * 10, i * 10 + 10)
                 .map(pageArticle => {
-                    pageArticle.image = JSON.parse(pageArticle.image);
-                    pageArticle.youtubeVideo = JSON.parse(pageArticle.youtubeVideo);
+                    pageArticle.image = JSON.parse(pageArticle.image)
+                    pageArticle.youtubeVideo = JSON.parse(pageArticle.youtubeVideo)
                     pageArticle.category = {
                         name: item.name,
                         slug: item.slug,
                         lang: item.lang
                     }
-                    return pageArticle;
+                    return pageArticle
                 })
 
-            let pageExt = "";
-            if (i !== 0)
-                pageExt = `${i + 1}/`;
+            let pageExt = ""
+            let currentPage = 1
+            if (i !== 0) {
+                pageExt = `${i + 1}/`
+                currentPage = i + 1
+            }
 
             createPage({
                 path: `/${item.lang}/category/${item.slug}/${pageExt}`,
                 component: path.resolve("./src/templates/Category/category.js"),
-                context: { ...item, articles: pageArticles }
+                context: { ...item, articles: pageArticles, currentPage, pageNum: articlePageCount }
             })
         }
     })
 
     listTags.items.map(item => {
-        //console.log(item);
-        const articles = item.articles.items;
+        const articles = item.articles.items
 
-        const articleCount = articles.length;
-        const articlePageCount = Math.ceil(articleCount / 10);
+        const articleCount = articles.length
+        const articlePageCount = Math.ceil(articleCount / 10)
 
         for (let i = 0; i < articlePageCount; i++) {
             const pageArticles = articles.slice(i * 10, i * 10 + 10)
                 .map(pageArticle => {
-                    pageArticle.image = (!isEmptyObject(pageArticle.image) && pageArticle.image) ? JSON.parse(pageArticle.image) : null;
-                    pageArticle.youtubeVideo = (!isEmptyObject(pageArticle.youtubeVideo) && pageArticle.youtubeVideo) ? JSON.parse(pageArticle.youtubeVideo) : null;
-                    return pageArticle;
-                });
+                    pageArticle.image = (!isEmptyObject(pageArticle.image) && pageArticle.image) ? JSON.parse(pageArticle.image) : null
+                    pageArticle.youtubeVideo = (!isEmptyObject(pageArticle.youtubeVideo) && pageArticle.youtubeVideo) ? JSON.parse(pageArticle.youtubeVideo) : null
+                    return pageArticle
+                })
 
-            let pageExt = "";
+            let pageExt = ""
             if (i !== 0) {
-                pageExt = `${i + 1}/`;
+                pageExt = `${i + 1}/`
             }
 
             createPage({
@@ -175,5 +132,5 @@ exports.createPages = async ({ graphql, actions}) => {
 
     })
 
-};
+}
 

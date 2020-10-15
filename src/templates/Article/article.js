@@ -12,7 +12,7 @@ import ArticlePageInfoAndTitle from "./components/ArticlePageInfoAndTitle/Articl
 import HashTitle from "./components/HashTitle/HashTitle";
 import SuggestedArticleCard from "./components/SuggestedArticleCard/SuggestedArticleCard";
 import Gist from "./components/Gist/Gist";
-import { PageContextProvider } from "./context/PageContext";
+import { PageContextProvider } from "../../Context/PageContext";
 
 function Article(props) {
 

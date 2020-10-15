@@ -4,7 +4,7 @@ import Layout from "../layouts";
 import SEO from "../components/seo";
 import styles from "./styles/styles.module.css";
 import DisqusComments from "../components/DisqusComments/DisqusComments"
-import { PageContextProvider } from "../templates/Article/context/PageContext"
+import { PageContextProvider } from "../Context/PageContext"
 
 function AboutPage(props) {
     const lang = "en";

@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { PageContext } from "../templates/Article/context/PageContext"
+import { PageContext } from "../Context/PageContext"
 
 /*
 *

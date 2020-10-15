@@ -5,7 +5,7 @@ import WhatsappIcon from './icons/whatsapp.svg';
 import FacebookIcon from './icons/facebook.svg';
 import MailIcon from './icons/mail.svg';
 import styles from './share.module.css';
-import { PageContext } from "../../context/PageContext"
+import { PageContext } from "../../../../Context/PageContext"
 import { useTranslation } from "../../../../Hooks/Translation"
 
 const { t } = useTranslation();

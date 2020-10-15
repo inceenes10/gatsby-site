@@ -3,7 +3,7 @@ import { setDefaultLanguage } from "../Hooks/Translation";
 import Layout from "../layouts";
 import SEO from "../components/seo";
 import styles from "./styles/styles.module.css";
-import { PageContextProvider } from "../templates/Article/context/PageContext"
+import { PageContextProvider } from "../Context/PageContext"
 
 function AboutPage(props) {
     const lang = "tr";

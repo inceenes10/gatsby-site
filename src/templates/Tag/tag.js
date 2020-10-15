@@ -1,5 +1,5 @@
 import React from "react";
-import { PageContextProvider } from "../Article/context/PageContext";
+import { PageContextProvider } from "../../Context/PageContext";
 import SEO from "../../components/seo";
 import capitalize from "../../Helpers/capitalize";
 import Layout from "../../layouts";
