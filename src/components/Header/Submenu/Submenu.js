@@ -1,17 +1,16 @@
 import blogCategories from "../../Data/categories";
 import useDynamicRefs from "use-dynamic-refs";
 import React, { useEffect } from "react";
-import { Link } from "gatsby";
+import { Link, useStaticQuery } from "gatsby";
 import styles from "./submenu.module.css";
 import { getDefaultLanguage } from "../../../Hooks/Translation"
+
 
 const Submenu = props => {
 
     const lang = getDefaultLanguage();
 
     let prevPanel = null;
-
-
 
     const subCategoriesOfAll = blogCategories[lang].map(category => {
         return { [category.slug]: category.subCategories };
