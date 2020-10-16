@@ -25,41 +25,35 @@ function AboutPage(props) {
             }}>
                 <Layout>
                     <article className={styles.container}>
-                        <h1>About Me</h1>
+                        <h1>Hakkımda</h1>
                         <p>
-                            I've been working on software development since 2016,
-                            I'm interested in web programming, machine learning, deep learning and database systems.
-                            I'm <strong>Enes Ince</strong> from Istanbul Technical University in the Department of Electrical Engineering.
-                            Today, I'm going to talk about my past a little bit, then talk about my today and my future
-                            goals.
+                            2016 yılından itibaren yazılım geliştirme üzerine çalışıyorum, web programlama, makine öğrenimi, derin öğrenme
+                            ve veritabanı sistemleri hakkında bilgilerim var. Kendimi tanıtacak olursam ben İstanbul Teknik Üniversitesi
+                            Elektrik Mühendisliğinden Enes İnce. Bugün sana azıcık da olsa geçmişimden ve hemen ardından bugünümden ve gelecek
+                            hedeflerimden bahsedeceğim.
                         </p>
                         <p>
-                            I was born in <strong>Gaziantep/Şahinbey</strong> before about 19 years ago from today. In the year of 2015,
-                            I started to high school and in January of 2016, with the suggestion of my friend with whom I'm in same
-                            dormitory, I started to write code with <strong>C programming language</strong>, but I don't know English, math
-                            and the needs for <strong>programming</strong> and <strong>software engineering</strong>.
+                            Bundan yaklaşık olarak 19 yıl önce Gaziantep'in Şahinbey İlçesinde doğdum. Anaokulu, ilkokul ve ortaokulu bitirdikten sonra,
+                            2015 yılında liseye başladım ve 2016 yılının ocak ayında aynı yurtta kaldığım bir arkadaşımın önerisiyle C programlama dilinde
+                            kod yazmaya başladım, fakat ne ingilizce ne matematik, ne programlama ne de yazılım mühendisliği hakkında hiçbir şey bilmiyordum.
                         </p>
                         <p>
-                            Over time, I began to complete these needs, but this time I missed the classes and
-                            I was behind my peers in terms of classes. When I came to 12. grade, I switched to open education
-                            high school and I began to prepare university exam (YKS). With the exam results, I entered
-                            Istanbul Technical University Electrical Engineering Department.
-                            After entering the university, I studied in one-year preparation school (YDY)
-                            and today, I'm a freshman in electrical engineering department.
+                            Zaman ilerledikçe, bu ihtiyaçları (ingilizce hariç) kapatmaya başladım, ancak bu sefer de dersleri kaçırmaya ve okul bakımından akranlarımın gerisinde kalmaya
+                            başladım. 12. sınıfa geldiğimde, Açıköğretim lisesine geçtim ve üniversite sınavına hazırlandım. Sınav sonuçlarıyla
+                            İTÜ Elektrik Mühendisliğine yerleşmeye hak kazandım. Üniversiteye girdikten sonra 1 yıl hazırlık okudum ve bugün elektrik mühendisliği
+                            bölümünde 1. sınıf öğrencisiyim.
                         </p>
                         <p>
-                            Today, I have a intermediate-advanced insight into web development (frontend - backend)
-                            and basic understanding of machine learning (python).
-                            Among my future goals, I will focus on the intersect of machine learning and
-                            electrical engineering. That's why I chose Smart Grids, which it is even its infant,
-                            and I think that Smart Grids is technology of upcoming years and
-                            I will continue my career in Smart Grids.
+                            Bugün frontend backend geliştirme açısından web programlamada orta ileri düzey bilgim var ve
+                            makine öğrenimi üzerine az da olsa sezgiye (intuition) sahibim. Gelecekte, makine öğrenimi ve
+                            elektrik mühendisliğinin kesişimine odaklanmak istiyorum. Bu yüzden akıllı şebekeleri kendime hedef olarak
+                            seçtim, ki akıllı şebekeler henüz çocukluk döneminde ve ben ilerleyen yıllarda bu şebekelerin geleceğin teknolojileri arasında
+                            yer alacağına inanıyorum. Evet, kariyerime akıllı şebekeler alanında yön vereceğim.
                         </p>
                         <p>
-                            The goal of opening up this blog is that I'd like to
-                            share my ideas with people and I like to share my knowledge
-                            with others. I hope you enjoy reading my contents. This blog is for you
-                            to discover my world.
+                            Bu blogu açmamın amacı fikirlerimi başka insanlarla paylaşma isteğimdir ve ben kendi bilgilerimi
+                            başkalarıyla paylaşmaktan da zevk alıyorum. İçeriklerimi severek okuyacağınızı umuyorum.
+                            THIS BLOG IS FOR YOU TO DISCOVER MY WORLD
                         </p>
                     </article>
                     <section className={styles.commentContainer}>

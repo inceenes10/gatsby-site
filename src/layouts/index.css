@@ -144,7 +144,9 @@ div.container a:focus {
 }
 
 .sidebar {
-    width: 320px;
+    flex-basis: 300px;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 .sidebar > * {

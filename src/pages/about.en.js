@@ -35,13 +35,13 @@ function AboutPage(props) {
                             goals.
                         </p>
                         <p>
-                            I was born in <strong>Gaziantep/Şahinbey</strong> before about 19 years ago from today. In the year of 2015,
+                            I was born in <strong>Gaziantep/Şahinbey</strong> before about 19 years ago from today. After kindergarten, primary school and middle school, in the year of 2015,
                             I started to high school and in January of 2016, with the suggestion of my friend with whom I'm in same
                             dormitory, I started to write code with <strong>C programming language</strong>, but I don't know English, math
                             and the needs for <strong>programming</strong> and <strong>software engineering</strong>.
                         </p>
                         <p>
-                            Over time, I began to complete these needs, but this time I missed the classes and
+                            Over time, I began to complete these needs except English, but this time I missed the classes and
                             I was behind my peers in terms of classes. When I came to 12. grade, I switched to open education
                             high school and I began to prepare university exam (YKS). With the exam results, I entered
                             Istanbul Technical University Electrical Engineering Department.

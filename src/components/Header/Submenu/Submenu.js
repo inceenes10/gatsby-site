@@ -50,7 +50,7 @@ const Submenu = props => {
                     {
                         blogCategories[lang].map((category, index) => {
                             if (typeof category.subCategories !== "undefined") {
-                                return (<button href={null} data-index={index} key={category.slug + Math.random()} tabIndex="0" onFocus={parentCategoryHover} onMouseOver={parentCategoryHover}>
+                                return (<button data-index={index} key={category.slug + Math.random()} tabIndex="0" onFocus={parentCategoryHover} onMouseOver={parentCategoryHover}>
                                     <li data-index={index}>{category.name}</li>
                                 </button>)
                             }

@@ -7,8 +7,8 @@
     position: absolute;
     border: 1px solid #eee;
     border-radius: 5px;
-    width: 480px;
-    left: calc(50% - 240px);
+    width: 560px;
+    left: calc(50% - 280px);
     background: white;
     justify-content: space-between;
     top: 55px;
@@ -38,6 +38,7 @@
     padding: 10px 5px;
     cursor: pointer;
     font-size: 1rem;
+    text-align: left;
     background: transparent;
 }
 .submenu ul.items > *:hover {
