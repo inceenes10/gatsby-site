@@ -1,2 +1,2 @@
 
-ince.guru[https://ince.guru] websitemin kaynak kodu
+https://ince.guru(ince.guru) websitemin kaynak kodu
