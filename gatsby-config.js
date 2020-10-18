@@ -152,7 +152,7 @@ module.exports = {
                     '/', "/tr", '/*/about'
                 ],
             },
-        },/*
+        },
         {
             resolve: `gatsby-plugin-google-analytics`,
             options: {
@@ -160,7 +160,7 @@ module.exports = {
                 head: true,
                 anonymize: true,
             },
-        },*/
+        },
         'gatsby-plugin-robots-txt',
     ],
     siteMetadata: {
