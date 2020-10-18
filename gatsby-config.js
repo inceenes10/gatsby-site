@@ -40,6 +40,74 @@ module.exports = {
             resolve: `gatsby-plugin-sitemap`,
             options: {
                 createLinkInHead: true,
+                query: `
+                {
+                  site {
+                    siteMetadata {
+                      siteUrl
+                    }
+                  }
+                  allSitePage {
+                    nodes {
+                      path
+                    }
+                  }
+                  appsync {
+                    listArticles {
+                      items {
+                        updatedAt
+                        slug
+                      }
+                    }
+                  }
+                }
+                `,
+                serialize({ site, allSitePage, appsync: { listArticles: { items } } }) {
+                    return allSitePage.nodes.map((node) => {
+
+                        const isTag = node.path.includes('/tag/')
+                        const isArticle = node.path.includes('/article/')
+                        const isCategory = node.path.includes('/category/')
+
+                        const obj = {
+                            url: `${site.siteMetadata.siteUrl}${node.path}`
+                        };
+
+                        if (isArticle) {
+                            const slug = node.path.split('/').slice(-1)[0];
+
+                            const el = items.find(el => {
+                                return el.slug === slug
+                            });
+
+                            const date = new Date(el.updatedAt);
+
+                            const day = date.getDate();
+                            const month = date.getMonth() + 1;
+                            const year = date.getFullYear();
+
+                            obj.lastmod = `${year}-${month}-${day}`;
+                            obj.priority = 0.7;
+                        }
+
+                        else if (isTag) {
+                            obj.priority = 0.9;
+                            obj.changefreq = 'weekly';
+                        }
+
+                        else if (isCategory) {
+                            obj.priority = 0.8;
+                            obj.changefreq = 'weekly';
+                        }
+
+                        else {
+                            obj.priority = 1;
+                            obj.changefreq = 'weekly';
+                        }
+
+                        return obj;
+                    })
+                }
             }
         },
         {
@@ -84,7 +152,7 @@ module.exports = {
                     '/', "/tr", '/*/about'
                 ],
             },
-        },
+        },/*
         {
             resolve: `gatsby-plugin-google-analytics`,
             options: {
@@ -92,7 +160,8 @@ module.exports = {
                 head: true,
                 anonymize: true,
             },
-        },
+        },*/
+        'gatsby-plugin-robots-txt',
     ],
     siteMetadata: {
         siteUrl: 'https://ince.guru'

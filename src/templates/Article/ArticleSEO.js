@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import Layout from "../../layouts"
-import { getDefaultLanguage } from "../../Hooks/Translation"
+import Layout from "../../layouts";
+import { getDefaultLanguage } from "../../Hooks/Translation";
 import { PageContext } from "../../Context/PageContext";
 
 
