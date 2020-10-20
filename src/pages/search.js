@@ -74,7 +74,7 @@ class SearchPage extends React.Component {
 
         this.searchInput.current.value = this.q;
 
-        if (document.readyState === "complete")
+        if (document.readyState === "complete" && this.q)
             this.fetchSearchData();
     }
 

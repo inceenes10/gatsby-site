@@ -28,14 +28,16 @@ class Home extends React.Component {
                         <meta name="yandex-verification" content="2abcdf66c68f1b71" />
                         <script type="application/ld+json">
                             {
-                                `"@context": "https://schema.org",
-                                "@type": "WebSite",
-                                "url": "https://www.ince.guru/",
-                                "name": "Enes Ince",
-                                "potentialAction": {
-                                    "@type": "SearchAction",
-                                    "target": "https://www.ince.guru/search?q={search_term_string}",
-                                    "query-input": "required name=search_term_string"
+                                `{
+                                    "@context": "https://schema.org",
+                                    "@type": "WebSite",
+                                    "url": "https://www.ince.guru/",
+                                    "name": "Enes Ince",
+                                    "potentialAction": {
+                                        "@type": "SearchAction",
+                                        "target": "https://www.ince.guru/search?q={search_term_string}",
+                                        "query-input": "required name=search_term_string"
+                                    }
                                 }`
                             }
                         </script>
