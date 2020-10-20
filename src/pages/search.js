@@ -21,6 +21,17 @@ setTranslation({
 });
 
 
+/*
+*
+* TODO: Uppercase, Lowercase error is gonna correct,
+*   Search Results UI will update,
+*   Loading GIF will add,
+*   Language Support is gonna add for en and tr search page
+*
+* NOTE: This page is for google to add searchbox sitelink for SEO
+*
+* **/
+
 class SearchPage extends React.Component {
 
     query = `

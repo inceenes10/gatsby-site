@@ -6,8 +6,7 @@ import { PageContextProvider } from "../../Context/PageContext";
 import Post from "../../components/Post/Post"
 import Pagination from "../../components/Pagination/Pagination"
 import SGK40AdvertiseImage from "../../images/sgk40.jpg"
-
-
+import { Helmet } from 'react-helmet';
 class Home extends React.Component {
 
 
@@ -25,6 +24,22 @@ class Home extends React.Component {
                     keywords: [],
                     type: "website"
                 }}>
+                    <Helmet>
+                        <meta name="yandex-verification" content="2abcdf66c68f1b71" />
+                        <script type="application/ld+json">
+                            {
+                                `"@context": "https://schema.org",
+                                "@type": "WebSite",
+                                "url": "https://www.ince.guru/",
+                                "name": "Enes Ince",
+                                "potentialAction": {
+                                    "@type": "SearchAction",
+                                    "target": "https://www.ince.guru/search?q={search_term_string}",
+                                    "query-input": "required name=search_term_string"
+                                }`
+                            }
+                        </script>
+                    </Helmet>
                     <Layout>
                         <div className="container">
 
