@@ -268,3 +268,77 @@ export const listCategorys = /* GraphQL */ `
     }
   }
 `;
+export const searchArticles = /* GraphQL */ `
+  query SearchArticles(
+    $filter: SearchableArticleFilterInput
+    $sort: SearchableArticleSortInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    searchArticles(
+      filter: $filter
+      sort: $sort
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        title
+        description
+        categoryId
+        category {
+          id
+          name
+          slug
+          lang
+          createdAt
+          updatedAt
+        }
+        slug
+        lang
+        body
+        youtubeVideo
+        image
+        metadata
+        tags {
+          nextToken
+        }
+        status
+        redirect
+        createdAt
+        updatedAt
+      }
+      nextToken
+      total
+    }
+  }
+`;
+export const searchTags = /* GraphQL */ `
+  query SearchTags(
+    $filter: SearchableTagFilterInput
+    $sort: SearchableTagSortInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    searchTags(
+      filter: $filter
+      sort: $sort
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        name
+        slug
+        lang
+        articles {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+      total
+    }
+  }
+`;

@@ -47,7 +47,7 @@ class Home extends React.Component {
 
                             <section className="posts">
                                 {
-                                    articles.map((article) => (<Post key={Math.random()} article={article}/>))
+                                    articles.map((article) => (<Post key={article.id} article={article}/>))
                                 }
                                 <Pagination currentPage={currentPage} pageNum={pageNum}>
 

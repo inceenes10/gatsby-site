@@ -36,7 +36,7 @@ class SearchPage extends React.Component {
 
     query = `
             query ($q: String!) {
-                listArticles(filter: { title: { contains: $q } }) {
+                searchArticles(filter: { title: { match: $q } }) {
                     items {
                         title
                         description
@@ -114,11 +114,6 @@ class SearchPage extends React.Component {
     render() {
         const lang = "en";
         setDefaultLanguage(lang);
-
-        moment.locale(lang, {
-            months: localesInfo[lang].months,
-            relativeTime: localesInfo[lang].relativeTime
-        })
 
         return (
             <PageContextProvider pageContext={{

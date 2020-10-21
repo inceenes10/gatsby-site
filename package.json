@@ -19,7 +19,7 @@
     "aws-amplify": "^3.3.3",
     "browser-monads": "^1.0.0",
     "disqus-react": "^1.0.10",
-    "gatsby": "^2.24.66",
+    "gatsby": "^2.24.84",
     "gatsby-plugin-anchor-links": "^1.1.1",
     "gatsby-plugin-canonical-urls": "^2.3.13",
     "gatsby-plugin-google-analytics": "^2.3.18",
@@ -43,6 +43,7 @@
     "react-helmet": "^6.1.0",
     "react-i18next": "^11.7.3",
     "react-jsx-parser": "^1.25.1",
+    "sharp": "^0.26.2",
     "use-dynamic-refs": "^1.0.0"
   },
   "devDependencies": {

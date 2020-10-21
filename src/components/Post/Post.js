@@ -66,9 +66,9 @@ class Post extends React.Component {
                     <Link to={`/${lang}/category/${category.slug}/`}>{category.name}</Link>
                 </span>
                 <h2 className="title">
-                    <Link to={`/${lang}/article/${slug}`}>9 Social Impact Models That Entrepreneurs Can Learn From</Link>
+                    <Link to={`/${lang}/article/${slug}`}>{title}</Link>
                 </h2>
-                <div className="description">Positive social change is an important component of a strong business.</div>
+                <div className="description">{description}</div>
                 <div className="byline">
                     <span className="author">{readtime} min read</span>
                     <span className="date">{date}</span>

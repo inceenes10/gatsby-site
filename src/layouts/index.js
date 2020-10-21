@@ -28,11 +28,13 @@ function Layout(props) {
         <HeaderSidebarProvider>
             <SideMenu/>
 
-            <Header/>
-            {
-                props.children
-            }
-            <Footer/>
+            <div className="page-wrapper">
+                <Header/>
+                {
+                    props.children
+                }
+                <Footer/>
+            </div>
         </HeaderSidebarProvider>
     );
 }

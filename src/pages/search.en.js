@@ -1,5 +1,11 @@
 import React from "react";
-import { localesInfo, setDefaultLanguage, setTranslation, useTranslation } from "../Hooks/Translation"
+import {
+    getDefaultLanguage,
+    localesInfo,
+    setDefaultLanguage,
+    setTranslation,
+    useTranslation
+} from "../Hooks/Translation"
 import SEO from "../components/seo";
 import { PageContextProvider } from "../Context/PageContext";
 import en from "../translations/en/layout";
@@ -7,6 +13,7 @@ import tr from "../translations/tr/layout";
 import moment from "moment";
 import LocalizedLink from "../components/LocalizedLink/LocalizedLink";
 import { Link } from "gatsby";
+import query from "../Helpers/search-query";
 import CloseIcon from "../images/close.svg";
 import SearchIcon from "../images/search.svg";
 import AutoForm from "react-auto-form";
@@ -22,17 +29,6 @@ setTranslation({
 
 
 class SearchPage extends React.Component {
-
-    query = `
-            query ($q: String!) {
-                listArticles(filter: { title: { contains: $q } }) {
-                    items {
-                        title
-                        description
-                    }
-                }
-            }
-        `;
 
     state = {
         articles: []
@@ -74,9 +70,10 @@ class SearchPage extends React.Component {
     async fetchSearchData() {
 
         this.loadingField.current.style.display = "block";
+        const lang = getDefaultLanguage()
 
         const articles = await API.graphql({
-            query: this.query, variables: this.variables
+            query: query, variables: { ...this.variables, lang }
         });
 
         console.log(articles);
@@ -103,11 +100,6 @@ class SearchPage extends React.Component {
     render() {
         const lang = "en";
         setDefaultLanguage(lang);
-
-        moment.locale(lang, {
-            months: localesInfo[lang].months,
-            relativeTime: localesInfo[lang].relativeTime
-        })
 
         return (
             <PageContextProvider pageContext={{

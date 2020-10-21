@@ -2,7 +2,8 @@ type Article @model
 @key(name: "byCategory", fields: ["categoryId"])
 @auth(rules: [
 { allow: public, operations: [read] }
-]) {
+])
+@searchable {
   id: ID!
   title: String!
   description: String!
@@ -33,7 +34,7 @@ articles: Article @connection(fields: ["articleId"])
 type Tag @model
 @auth(rules: [
 { allow: public, operations: [read] }
-]) {
+]) @searchable {
 id: ID!
 name: String!
 slug: String!

@@ -29,12 +29,15 @@ exports.createPages = async ({ graphql, actions}) => {
 
     const articlesByLanguage = groupByLang(listArticles.items);
 
+
+    const itemPerPage = 10;
+
     for (let i = 0; i < Object.keys(articlesByLanguage).length; i++) {
         const lang = Object.keys(articlesByLanguage)[i];
 
-
-        for (let j = 0; j < articlesByLanguage[lang].length; j++) {
-            const articlesByLangByPage = articlesByLanguage[lang].slice(j * 10, j * 10 + 10);
+        const pageNum = Math.ceil(articlesByLanguage[lang].length / itemPerPage)
+        for (let j = 0; j < pageNum; j++) {
+            const articlesByLangByPage = articlesByLanguage[lang].slice(j * itemPerPage, j * itemPerPage + itemPerPage);
 
             let _path = '';
 
@@ -50,7 +53,7 @@ exports.createPages = async ({ graphql, actions}) => {
 
             createPage({
                 context: {
-                    articles: articlesByLangByPage, currentPage: j + 1, pageNum: articlesByLangByPage.length
+                    articles: articlesByLangByPage, currentPage: j + 1, pageNum
                 },
                 path: _path,
                 component: path.resolve(`./src/templates/Home/index.${lang}.js`)
