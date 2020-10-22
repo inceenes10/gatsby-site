@@ -8,7 +8,7 @@ function HeaderImageContainer() {
     return (
         <div className={styles.container}>
             <Link to="/">
-                <img src={Logo} alt="Logo" width="250"></img>
+                <img src={Logo} alt="Logo" height={141} width={248.8}></img>
             </Link>
         </div>
     );

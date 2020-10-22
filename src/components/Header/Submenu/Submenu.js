@@ -17,6 +17,7 @@ const Submenu = props => {
     });
 
     const refsCount = blogCategories[lang].length;
+    const modalRef = React.createRef();
 
     const [getSubCategoryPanelRef, setSubCategoryPanelRef] = useDynamicRefs();
 
@@ -31,7 +32,20 @@ const Submenu = props => {
 
         firstPanel.current.style.display = "block";
         prevPanel = firstPanel;
+        arrangeModal();
+
+        window.addEventListener('scroll', arrangeModal);
+
+        return () => window.removeEventListener('scroll', arrangeModal);
     });
+
+
+    const arrangeModal = () => {
+        console.log("merhaba dünya");
+        let modalOffset = Math.max(235 - window.scrollY, 50);
+        if (modalRef.current)
+            modalRef.current.style.height = `${window.innerHeight - modalOffset}px`;
+    };
 
     const parentCategoryHover = (event) => {
         if (prevPanel !== null)
@@ -43,7 +57,10 @@ const Submenu = props => {
     }
 
     return (
-        <div onMouseEnter={() => props.setIsOpenBlogSubmenu(true) } onMouseLeave={ () => props.setIsOpenBlogSubmenu(false) } role="button" tabIndex="0">
+        <div onMouseEnter={() => props.setIsOpenBlogSubmenu(true) } onMouseLeave={ (e) => {
+            e.preventDefault();
+            props.setIsOpenBlogSubmenu(false)}
+        } role="button" tabIndex="0">
             <div style={{height: props.isOpenBlogSubmenu ? 5 : 0, width: 640, left: "calc(50% - 320px)", position: "absolute", top: "50px",zIndex: props.isOpenBlogSubmenu ? 2 : -1}}></div>
             <div className={props.isOpenBlogSubmenu ? styles.submenu + " " + styles.active : styles.submenu}>
                 <ul className={styles.items}>
@@ -95,11 +112,12 @@ const Submenu = props => {
                 }
 
             </div>
-            <div className={props.isOpenBlogSubmenu ? styles.modal + " " + styles.active : styles.modal} tabIndex={0} role="button" onMouseEnter={() => {
+            <div className={props.isOpenBlogSubmenu ? styles.modal + " " + styles.active : styles.modal} tabIndex={0} role="button" onMouseEnter={(e) => {
+                e.preventDefault();
                 if (prevPanel !== null)
                     prevPanel.current.style.display = "none";
                 props.setIsOpenBlogSubmenu(false)
-            }} aria-label="close the modal"></div>
+            }} aria-label="close the modal" ref={modalRef}></div>
         </div>
     );
 };
