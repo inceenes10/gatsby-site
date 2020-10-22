@@ -49,7 +49,7 @@ class Home extends React.Component {
                                 {
                                     articles.map((article) => (<Post key={article.id} article={article}/>))
                                 }
-                                <Pagination currentPage={currentPage} pageNum={pageNum}>
+                                <Pagination currentPage={currentPage} pageNum={pageNum} pathPrefix="/page">
 
                                 </Pagination>
                             </section>

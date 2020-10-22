@@ -11,7 +11,7 @@ class Pagination extends React.Component {
 
         const { t } = useTranslation();
 
-        const { pageNum, currentPage } = this.props;
+        const { pageNum, currentPage, pathPrefix } = this.props;
 
         if (pageNum === 1) return null;
 
@@ -32,22 +32,35 @@ class Pagination extends React.Component {
             }
         }
 
+
+        let prevPath = `${pathPrefix}/${currentPage - 1}`;
+
+        if (pathPrefix === 'page' && currentPage === 2) {
+            prevPath = null;
+        }
+        else if (currentPage === 2 && pathPrefix !== 'page') {
+            prevPath = pathPrefix
+        }
+
         return (
             <div className={styles.container}>
-                <LocalizedLink className={styles.item} to={(currentPage !== 2) ? `/page/${currentPage - 1}` : null}>{t('prev')}</LocalizedLink>
+                <LocalizedLink className={styles.item} to={prevPath}>{t('prev')}</LocalizedLink>
                 {
                     arr.map(item => {
                         if (item === '···') {
                             return <div className={styles.item} key={item}>···</div>
                         }
+                        else if (item === 1) {
+                            return <LocalizedLink to={`${pathPrefix}`} key={item} className={currentPage !== item ? `${styles.item}` : `${styles.item} ${styles.active}`}>{item}</LocalizedLink>
+                        }
                         return (
-                            <LocalizedLink to={`/page/${item}`} key={item} className={currentPage !== item ? `${styles.item}` : `${styles.item} ${styles.active}`}>
+                            <LocalizedLink to={`${pathPrefix}/${item}`} key={item} className={currentPage !== item ? `${styles.item}` : `${styles.item} ${styles.active}`}>
                                 {item}
                             </LocalizedLink>
                         )
                     })
                 }
-                { currentPage !== pageNum && <LocalizedLink className={styles.item} to={`/page/${currentPage + 1}`}>{t('next')}</LocalizedLink> }
+                { currentPage !== pageNum && <LocalizedLink className={styles.item} to={`${pathPrefix}/${currentPage + 1}`}>{t('next')}</LocalizedLink> }
             </div>
         )
     }

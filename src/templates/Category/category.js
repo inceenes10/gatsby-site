@@ -20,7 +20,7 @@ class CategoryPage extends React.Component {
 
         const { t } = useTranslation()
 
-        const { articles, pageNum, currentPage } = this.props.pageContext;
+        const { articles, pageNum, currentPage, slug } = this.props.pageContext;
 
 
 
@@ -39,7 +39,7 @@ class CategoryPage extends React.Component {
                                 {
                                     articles.map((article) => (<Post key={Math.random()} article={article}/>))
                                 }
-                                <Pagination currentPage={currentPage} pageNum={pageNum}>
+                                <Pagination currentPage={currentPage} pageNum={pageNum} pathPrefix={`/category/${slug}`}>
 
                                 </Pagination>
                             </section>

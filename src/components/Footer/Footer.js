@@ -2,6 +2,18 @@ import React from "react";
 import { Link } from "gatsby";
 import AutoForm from "react-auto-form";
 import './footer.css';
+import { getDefaultLanguage, useTranslation } from "../../Hooks/Translation"
+import LocalizedLink from "../LocalizedLink/LocalizedLink"
+import footerCategories from "../Data/categories-footer";
+import FacebookIcon from "./social-media-icons/facebook.svg";
+import TwitterIcon from "./social-media-icons/twitter.svg";
+import InstagramIcon from "./social-media-icons/instagram.svg";
+import LinkedInIcon from "./social-media-icons/linkedin.svg";
+import GithubIcon from "./social-media-icons/github.svg";
+import PatreonIcon from "./social-media-icons/patreon.svg";
+
+
+
 class Footer extends React.Component {
 
 
@@ -14,74 +26,65 @@ class Footer extends React.Component {
     }
 
     render() {
+
+        const lang = getDefaultLanguage();
+        const { t } = useTranslation();
+
+        const categories = footerCategories[lang];
         return (
             <footer className="footer">
                 <div className="footer-hero">
                     <ul>
-                        <h4>Kategori</h4>
-                        <li>
-                            <Link to="/">C Programlama Dili</Link>
-                        </li>
-                        <li>
-                            <Link to="/">Php</Link>
-                        </li>
-                        <li>
-                            <Link to="/">Amazon Web Servisleri</Link>
-                        </li>
-                        <li>
-                            <Link to="/">Appsync</Link>
-                        </li>
-                        <li>
-                            <Link to="/">Veri Yapıları ve Algoritmalar</Link>
-                        </li>
+                        <h4>{ t("category") }</h4>
+                        {
+                            categories.map(category => <li key={Math.random()}>
+                                <LocalizedLink to={`/category/${category.slug}`}>{category.name}</LocalizedLink>
+                            </li>)
+                        }
                     </ul>
                     <ul>
-                        <h4>Kategori</h4>
+                        <h4>{ t("personal") }</h4>
                         <li>
-                            <Link to="/">C Programlama Dili</Link>
+                            <LocalizedLink to="/about">{ t("about") }</LocalizedLink>
                         </li>
                         <li>
-                            <Link to="/">Php</Link>
-                        </li>
-                        <li>
-                            <Link to="/">Amazon Web Servisleri</Link>
-                        </li>
-                        <li>
-                            <Link to="/">Appsync</Link>
-                        </li>
-                        <li>
-                            <Link to="/">Veri Yapıları ve Algoritmalar</Link>
-                        </li>
-                    </ul>
-                    <ul>
-                        <h4>Kategori</h4>
-                        <li>
-                            <Link to="/">C Programlama Dili</Link>
-                        </li>
-                        <li>
-                            <Link to="/">Php</Link>
-                        </li>
-                        <li>
-                            <Link to="/">Amazon Web Servisleri</Link>
-                        </li>
-                        <li>
-                            <Link to="/">Appsync</Link>
-                        </li>
-                        <li>
-                            <Link to="/">Veri Yapıları ve Algoritmalar</Link>
+                            <LocalizedLink to="/contact">{ t("contact") }</LocalizedLink>
                         </li>
                     </ul>
                     <div className="newsletter-subscription">
-                        <h4>Subscribe to Newsletter</h4>
+                        <h4>{ t("newsletter") }</h4>
                         <AutoForm className="newsletter-subscription--form" trimOnSubmit={true}>
-                            <input type="email" name="email" placeholder="Email Address" required={true}/>
-                            <input type="submit" value="Subscribe"/>
+                            <input type="email" name="email" placeholder={ t("email_address") } required={true}/>
+                            <input type="submit" value={ t("subscribe") }/>
                         </AutoForm>
+                    </div>
+                    <div className="social-media-icons--hero">
+                        <h4>{t("social_media")}</h4>
+                        <div className="social-media-icons">
+                            <a href="https://www.facebook.com/inceenes10" target="_blank" rel="noopener noreferrer">
+                                <img src={FacebookIcon} alt="Facebook" width="30"/>
+                            </a>
+                            <a href="https://twitter.com/inceenes10" target="_blank" rel="noopener noreferrer">
+                                <img src={TwitterIcon} alt="Twitter" width="30"/>
+                            </a>
+                            <a href="https://www.instagram.com/inceenes10/" target="_blank" rel="noopener noreferrer">
+                                <img src={InstagramIcon} alt="Instagram" width="30"/>
+                            </a>
+                            <a href="https://github.com/inceenes10" target="_blank" rel="noopener noreferrer">
+                                <img src={GithubIcon} alt="Github" width="30"/>
+                            </a>
+                            <a href="https://www.linkedin.com/in/inceenes10/" target="_blank" rel="noopener noreferrer">
+                                <img src={LinkedInIcon} alt="Linkedin" width="30"/>
+                            </a>
+                            <a href="https://www.patreon.com/inceenes10" target="_blank" rel="noopener noreferrer">
+                                <img src={PatreonIcon} alt="Patreon" width="30"/>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <div className="footer--copy-right">
-                    Enes ince &copy; All rights reserved
+                    { t("copy_rights") }
                 </div>
             </footer>
         )

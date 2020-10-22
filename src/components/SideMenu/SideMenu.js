@@ -6,6 +6,7 @@ import { Link } from "gatsby";
 import ExpandMoreIcon from '../../images/expand_more.svg';
 import categories from "../Data/categories";
 import { getDefaultLanguage, useTranslation } from "../../Hooks/Translation"
+import LocalizedLink from "../LocalizedLink/LocalizedLink"
 
 function SideMenu() {
 
@@ -95,22 +96,22 @@ function SideMenu() {
                 }}
                      ref={SidebarHeroRef}>
                     <ul className={styles.hero} >
-                        <div >
+                        <div>
                             <img src={require("../../images/back.svg")} alt="Back Icon" style={{visibility: "hidden"}}/>
                         </div>
-                        <Link to="/tr" onClick={() => closeSidebar()}>
-                            <li className={styles.listItem}>{t("Home")}</li>
-                        </Link>
+                        <LocalizedLink onClick={() => closeSidebar()}>
+                            <li className={styles.listItem}>{t("home")}</li>
+                        </LocalizedLink>
                         <li role="presentation" className={`${styles.listItem} ${styles.dropdownMenu}`} onClick={() => openSubmenu(blogCategories)}>
                             <span>Blog</span>
                             <img src={ExpandMoreIcon} alt="expand more"/>
                         </li>
-                        <Link to="/tr" onClick={() => closeSidebar()}>
-                            <li className={styles.listItem}>{t("About")}</li>
-                        </Link>
-                        <Link to="/tr" onClick={() => closeSidebar()}>
-                            <li className={styles.listItem}>{t("Contact")}</li>
-                        </Link>
+                        <LocalizedLink to="/about" onClick={() => closeSidebar()}>
+                            <li className={styles.listItem}>{t("about")}</li>
+                        </LocalizedLink>
+                        <LocalizedLink to="/contact" onClick={() => closeSidebar()}>
+                            <li className={styles.listItem}>{t("contact")}</li>
+                        </LocalizedLink>
                     </ul>
                     {
                         subCategories
@@ -118,7 +119,7 @@ function SideMenu() {
 
                 </div>
                 <span className={styles.copyRight}>
-                    Enes ince &copy; Tüm hakları saklıdır.
+                    { t("copy_rights") }
                 </span>
             </aside>
             <div className={isOpen ? `${styles.modal} ${styles.active}` : styles.modal} onKeyDown={() => closeSidebar()} onClick={() => closeSidebar()} role="button" tabIndex={0} aria-label="close side menu"></div>

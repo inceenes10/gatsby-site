@@ -8,5 +8,12 @@
   "sponsored": "Sponsored",
   "prev": "Prev",
   "next": "Next",
-  "related_content": "RELATED CONTENT"
+  "related_content": "RELATED CONTENT",
+  "category": "Category",
+  "personal": "Personal",
+  "social_media": "Social Media",
+  "newsletter": "Subscribe to Newsletter",
+  "subscribe": "SUBSCRIBE",
+  "email_address": "Email Address",
+  "copy_rights": "Enes Ince © All rights reserved"
 }

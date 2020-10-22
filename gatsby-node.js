@@ -74,11 +74,12 @@ exports.createPages = async ({ graphql, actions}) => {
     listCategorys.items.map(item => {
 
         const articles = item.articles.items
-        const articleCount = articles.length
-        const articlePageCount = Math.ceil(articleCount / 10)
+        const articleCount = articles.length;
+        const itemPerPage = 10;
+        const articlePageCount = Math.ceil(articleCount / itemPerPage);
 
         for (let i = 0; i < articlePageCount; i++) {
-            let pageArticles = articles.slice(i * 10, i * 10 + 10)
+            let pageArticles = articles.slice(i * itemPerPage, i * itemPerPage + itemPerPage)
                 .map(pageArticle => {
                     pageArticle.image = JSON.parse(pageArticle.image)
                     pageArticle.youtubeVideo = JSON.parse(pageArticle.youtubeVideo)
@@ -108,11 +109,12 @@ exports.createPages = async ({ graphql, actions}) => {
     listTags.items.map(item => {
         const articles = item.articles.items
 
-        const articleCount = articles.length
-        const articlePageCount = Math.ceil(articleCount / 10)
+        const articleCount = articles.length;
+        const itemPerPage = 10;
+        const articlePageCount = Math.ceil(articleCount / itemPerPage)
 
         for (let i = 0; i < articlePageCount; i++) {
-            const pageArticles = articles.slice(i * 10, i * 10 + 10)
+            const pageArticles = articles.slice(i * itemPerPage, i * itemPerPage + itemPerPage)
                 .map(pageArticle => {
                     pageArticle.image = (!isEmptyObject(pageArticle.image) && pageArticle.image) ? JSON.parse(pageArticle.image) : null
                     pageArticle.youtubeVideo = (!isEmptyObject(pageArticle.youtubeVideo) && pageArticle.youtubeVideo) ? JSON.parse(pageArticle.youtubeVideo) : null
