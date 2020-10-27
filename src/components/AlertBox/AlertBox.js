@@ -31,7 +31,9 @@ class AlertBoxContainer {
 
 
     constructor() {
-        
+        if (typeof window === "undefined") {
+            return null;
+        }
         this.alertBoxModal = document.createElement("div");
         this.alertBoxModal.id = "alert-box--modal";
         this.alertBoxModal.className = "alert-box--modal";

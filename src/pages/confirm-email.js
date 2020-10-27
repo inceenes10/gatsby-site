@@ -2,6 +2,7 @@ import React from "react";
 import axios from 'axios';
 import styles from "./styles/confirm-email.module.css";
 import { Link } from "gatsby";
+import { Helmet } from "react-helmet";
 
 function ConfirmEmail(props) {
 
@@ -44,6 +45,9 @@ function ConfirmEmail(props) {
 
     return (
         <div className={styles.wrapper}>
+            <Helmet>
+                <title>Confirm Your Email Address to receive my emails</title>
+            </Helmet>
             <div className={styles.loadingSpannerContainer} ref={loadingSpannerContainer}>
                 <div className={styles.skChase} >
                     <div className={styles.skChaseDot}></div>
