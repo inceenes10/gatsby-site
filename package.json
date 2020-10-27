@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "aws-amplify": "^3.3.3",
+    "axios": "^0.21.0",
     "browser-monads": "^1.0.0",
     "disqus-react": "^1.0.10",
     "gatsby": "^2.24.84",

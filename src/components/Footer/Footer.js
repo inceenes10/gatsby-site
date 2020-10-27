@@ -11,18 +11,59 @@ import InstagramIcon from "./social-media-icons/instagram.svg";
 import LinkedInIcon from "./social-media-icons/linkedin.svg";
 import GithubIcon from "./social-media-icons/github.svg";
 import PatreonIcon from "./social-media-icons/patreon.svg";
-
+import axios from "axios";
+import AlertBox from "../AlertBox/AlertBox";
 
 
 class Footer extends React.Component {
 
 
-    // Some functions
+
+    constructor(props) {
+        super(props);
+
+        this.loadingSpanner = React.createRef();
+    }
+
 
     handleEmailSubmitForm = (event, data) => {
         event.preventDefault();
+        const API_URL = "https://api.ince.guru/prod/SendEmailMailboxConfirmation";
 
-        console.log(data.email);
+        const { t } = useTranslation()
+
+        const loadingSpanner = this.loadingSpanner.current;
+        loadingSpanner.style.display = "block";
+
+
+        axios({
+            method: "POST",
+            url: API_URL,
+            data,
+            timeout: 4000,
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+            .then(result => {
+                AlertBox.success({
+                    title: t("success"),
+                    text: t("success_message")
+                })
+            })
+            .catch(() => {
+                AlertBox.error({
+                    title: t("error"),
+                    text: t("error_message")
+                })
+            })
+            .finally(() => {
+                loadingSpanner.style.display = "none";
+            })
+
+        console.log(data);
+
+        return false;
     }
 
     render() {
@@ -53,9 +94,14 @@ class Footer extends React.Component {
                     </ul>
                     <div className="newsletter-subscription">
                         <h4>{ t("newsletter") }</h4>
-                        <AutoForm className="newsletter-subscription--form" trimOnSubmit={true}>
+                        <AutoForm className="newsletter-subscription--form" trimOnSubmit={true} onSubmit={this.handleEmailSubmitForm}>
+                            <input type="text" name="fullname" placeholder="Fullname" required={true} />
                             <input type="email" name="email" placeholder={ t("email_address") } required={true}/>
+                            <input type="hidden" name="lang" value={lang}/>
                             <input type="submit" value={ t("subscribe") }/>
+                            <span style={{
+                                display: 'none'
+                            }} ref={this.loadingSpanner}>loading...</span>
                         </AutoForm>
                     </div>
                     <div className="social-media-icons--hero">

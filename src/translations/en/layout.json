@@ -15,5 +15,9 @@
   "newsletter": "Subscribe to Newsletter",
   "subscribe": "SUBSCRIBE",
   "email_address": "Email Address",
-  "copy_rights": "Enes Ince © All rights reserved"
+  "copy_rights": "Enes Ince © All rights reserved",
+  "success": "Successful",
+  "success_message": "Check your inbox to confirm your email address",
+  "error": "Error",
+  "error_message": "An error occured when sending your email to the server. Please, check your internet connection"
 }

@@ -16,5 +16,9 @@
   "newsletter": "Haber Bültenine Abone Ol",
   "subscribe": "ABONE OL",
   "email_address": "Email Adresiniz",
-  "copy_rights": "Enes İnce © Tüm Hakları Saklıdır"
+  "copy_rights": "Enes İnce © Tüm Hakları Saklıdır",
+  "success": "Başarılı",
+  "success_message": "Email adresinizini onaylamak için mail kutunuzu kontrol edin",
+  "error": "Hata",
+  "error_message": "Email adresiniz sunucuya gönderilirken bir hata oluştu. Lütfen internet bağlantınızı kontrol ediniz"
 }

@@ -29,17 +29,16 @@ class AlertBoxContent extends React.Component {
 
 class AlertBoxContainer extends React.Component {
 
-    constructor(props) {
-        super(props);
-        //window.event.stopPropagation();
 
+
+
+    componentDidMount() {
         this.alertBoxModal = document.createElement("div");
         this.alertBoxModal.id = "alert-box--modal";
         this.alertBoxModal.className = "alert-box--modal";
 
         this.remove = this.remove.bind(this);
         this.show = this.show.bind(this);
-
     }
 
     show({title, text, type = "INFO"}) {

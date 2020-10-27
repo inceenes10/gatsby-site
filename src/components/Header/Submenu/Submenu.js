@@ -41,7 +41,6 @@ const Submenu = props => {
 
 
     const arrangeModal = () => {
-        console.log("merhaba dünya");
         let modalOffset = Math.max(235 - window.scrollY, 50);
         if (modalRef.current)
             modalRef.current.style.height = `${window.innerHeight - modalOffset}px`;
