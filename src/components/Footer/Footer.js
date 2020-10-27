@@ -28,7 +28,7 @@ class Footer extends React.Component {
 
     handleEmailSubmitForm = (event, data) => {
         event.preventDefault();
-        const API_URL = "https://api.ince.guru/prod/SendEmailMailboxConfirmation";
+        const API_URL = "https://api.ince.guru/e/SendEmailMailboxConfirmation";
 
         const { t } = useTranslation()
 
@@ -51,7 +51,8 @@ class Footer extends React.Component {
                     text: t("success_message")
                 })
             })
-            .catch(() => {
+            .catch((e) => {
+                console.log(e.response)
                 AlertBox.error({
                     title: t("error"),
                     text: t("error_message")

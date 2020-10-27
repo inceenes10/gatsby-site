@@ -27,12 +27,11 @@ class AlertBoxContent extends React.Component {
     }
 }
 
-class AlertBoxContainer extends React.Component {
+class AlertBoxContainer {
 
 
-
-
-    componentDidMount() {
+    constructor() {
+        
         this.alertBoxModal = document.createElement("div");
         this.alertBoxModal.id = "alert-box--modal";
         this.alertBoxModal.className = "alert-box--modal";
@@ -81,10 +80,6 @@ class AlertBoxContainer extends React.Component {
                 document.body.removeChild(this.alertBoxModal);
             }, 200);
         }
-    }
-
-    render() {
-        return null;
     }
 }
 
