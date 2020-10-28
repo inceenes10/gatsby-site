@@ -1,0 +1,105 @@
+
+.container {
+    margin: 0 auto;
+    padding: 50px 0;
+    width: min(800px, 90%);
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-info--container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.me-image {
+    width: 150px;
+}
+
+.me-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.me-image span {
+    display: block;
+    text-align: center;
+    color: rgba(0,0,0,0.6);
+    font-size: 0.9rem;
+}
+
+.info {
+    flex-direction: column;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.info-section {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.info-section img {
+    width: 24px;
+    height: 24px;
+}
+
+.info-section span {
+    line-height: 1;
+    color: rgba(0,0,0,0.7);
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 45ch;
+    flex-basis: 45ch;
+}
+
+.container label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.container label span {
+    color: rgba(0,0,0,.7)
+}
+
+.container input, .container textarea {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    padding: 7.5px 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid transparent;
+}
+
+.container input:focus, .container textarea:focus {
+    border-color: rgb(245, 193, 115);
+}
+
+.container textarea {
+    padding: 7px 10px;
+    min-height: 100px;
+    resize: none;
+    line-height: 1.5;
+}
+
+.container input[type="submit"] {
+    color: #fff;
+    background: #ff4436;
+    text-transform: uppercase;
+}
+
+
+@media (max-width: 720px) {
+    .container {
+        flex-direction: column-reverse;
+        gap: 50px;
+        align-items: center;
+    }
+}

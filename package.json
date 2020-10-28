@@ -40,10 +40,12 @@
     "react-auto-form": "^3.0.0",
     "react-dom": "^16.12.0",
     "react-embed-gist": "^1.0.10",
+    "react-form-with-constraints": "^0.16.0",
     "react-gist": "^1.2.2",
     "react-helmet": "^6.1.0",
     "react-i18next": "^11.7.3",
     "react-jsx-parser": "^1.25.1",
+    "react-textarea-autosize": "^8.2.0",
     "sharp": "^0.26.2",
     "use-dynamic-refs": "^1.0.0"
   },

@@ -8,18 +8,15 @@ function ConfirmEmail(props) {
 
     const loadingSpannerContainer = React.createRef();
     const successField = React.createRef();
-    //const errorField = React.createRef();
+    const errorField = React.createRef();
 
     React.useEffect(() => {
 
         const urlParams = new URLSearchParams(props.location.search);
 
-        console.log(urlParams);
-
         const key = urlParams.get("key")
 
         if (key) {
-            console.log(key)
 
             axios.get(`https://api.ince.guru/e/ConfirmMailboxEmail?key=${key}`, {
                 headers: {
@@ -27,18 +24,13 @@ function ConfirmEmail(props) {
                 }
             })
                 .then((result) => {
-                    console.log(result);
+                    successField.current.classList.add(styles.active);
                 })
                 .catch(e => {
-                    if (e.response.status === 400) {
-                        console.log("Böyle bir email adresi bulunamadı")
-                    }
-
+                    errorField.current.classList.add(styles.active);
                 })
                 .finally(() => {
-                    successField.current.classList.add(styles.active);
                     loadingSpannerContainer.current.classList.add(styles.disabled);
-                    console.log("işlem bitti");
                 })
         }
     })
@@ -59,7 +51,7 @@ function ConfirmEmail(props) {
                 </div>
             </div>
             <div className={styles.container}>
-                <div className={styles.successContainer} ref={successField}>
+                <div className={styles.messageContainer} ref={successField}>
                     <h1>Your email address added to my email list</h1>
                     <p>
                         Thanks for your interest in my newsletter
@@ -67,6 +59,16 @@ function ConfirmEmail(props) {
                     <Link to="/" style={{
                         color: "#e57373"
                     }}>Go to Home Page → 🏠️</Link>
+                </div>
+                <div className={styles.messageContainer} ref={errorField}>
+                    <h1>When adding your email address to my list, an undefined error occured</h1>
+                    <p>
+                        Please, <Link to="/" style={{ color: "#e57373" }}>Go to Home Page → 🏠️</Link>
+                        and refill the form and resubscribe
+                    </p>
+                    <p>
+                        Thank you for your interest
+                    </p>
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@
 }
 
 .container {
-    width: 55ch;
+    width: min(55ch, 90%);
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -40,19 +40,19 @@
     visibility: hidden;
 }
 
-.success-container {
+.message-container {
     margin-top: 100px;
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.6s ease-in-out;
 }
 
-.success-container.active {
+.message-container.active {
     opacity: 1;
     transform: translateY(0);
 }
 
-.success-container > * + * {
+.message-container > * + * {
     margin-top: 20px;
 }
 

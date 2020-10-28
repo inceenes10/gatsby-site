@@ -9,7 +9,7 @@ import FacebookIcon from "./social-media-icons/facebook.svg";
 import TwitterIcon from "./social-media-icons/twitter.svg";
 import InstagramIcon from "./social-media-icons/instagram.svg";
 import LinkedInIcon from "./social-media-icons/linkedin.svg";
-import GithubIcon from "./social-media-icons/github.svg";
+import GithubIcon from "../../images/social-media-icons/github.svg";
 import PatreonIcon from "./social-media-icons/patreon.svg";
 import axios from "axios";
 import AlertBox from "../AlertBox/AlertBox";
