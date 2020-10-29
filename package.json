@@ -30,6 +30,7 @@
     "gatsby-plugin-offline": "^3.2.32",
     "gatsby-plugin-react-helmet": "^3.3.13",
     "gatsby-plugin-react-helmet-canonical-urls": "^1.4.0",
+    "gatsby-plugin-recaptcha": "^1.0.5",
     "gatsby-plugin-robots-txt": "^1.5.3",
     "gatsby-plugin-sitemap": "^2.4.15",
     "gatsby-source-graphql": "^2.7.5",
@@ -45,6 +46,7 @@
     "react-helmet": "^6.1.0",
     "react-i18next": "^11.7.3",
     "react-jsx-parser": "^1.25.1",
+    "react-recaptcha": "^2.3.10",
     "react-textarea-autosize": "^8.2.0",
     "sharp": "^0.26.2",
     "use-dynamic-refs": "^1.0.0"

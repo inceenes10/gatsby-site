@@ -16,8 +16,16 @@
   "subscribe": "SUBSCRIBE",
   "email_address": "Email Address",
   "copy_rights": "Enes Ince © All rights reserved",
-  "success": "Successful",
-  "success_message": "Check your inbox to confirm your email address",
-  "error": "Error",
-  "error_message": "An error occured when sending your email to the server. Please, check your internet connection"
+  "subscribe_email": {
+    "success": "Successful",
+    "success_message": "Check your inbox to confirm your email address",
+    "error": "Error",
+    "error_message": "An error occured when sending your email to the server. Please, check your internet connection"
+  },
+  "contact_page": {
+    "success": "Successful",
+    "success_message": "Your message is sent to me. I will return to you in a very short time",
+    "error": "Error",
+    "error_message": "An error occured when sending your message to the server. Please, check your internet connection"
+  }
 }

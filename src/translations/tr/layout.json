@@ -4,7 +4,7 @@
   "about": "Hakkımda",
   "contact": "İletişim",
   "publish_at": "Yayınlanma Tarihi: {date}",
-  "last_udpate": "Son güncelleme: {date}",
+  "last_update": "Son güncelleme: {date}",
   "share_with_web_api": "paylaş",
   "sponsored": "Sponsorlu",
   "prev": "Önceki",
@@ -17,8 +17,16 @@
   "subscribe": "ABONE OL",
   "email_address": "Email Adresiniz",
   "copy_rights": "Enes İnce © Tüm Hakları Saklıdır",
-  "success": "Başarılı",
-  "success_message": "Email adresinizini onaylamak için mail kutunuzu kontrol edin",
-  "error": "Hata",
-  "error_message": "Email adresiniz sunucuya gönderilirken bir hata oluştu. Lütfen internet bağlantınızı kontrol ediniz"
+  "subscribe_email": {
+    "success": "Başarılı",
+    "success_message": "Email adresinizini onaylamak için mail kutunuzu kontrol edin",
+    "error": "Hata",
+    "error_message": "Email adresiniz sunucuya gönderilirken bir hata oluştu. Lütfen internet bağlantınızı kontrol ediniz"
+  },
+  "contact_page": {
+    "success": "Başarılı",
+    "success_message": "Mesajınızı aldım. En kısa sürede size dönüş yapacağım.",
+    "error": "Hata",
+    "error_message": "Mesajınız sunucuya gönderilirken bir hata meydana geldi. Lütfen internet bağlantınızı kontrol edin"
+  }
 }

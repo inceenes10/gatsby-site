@@ -40,6 +40,7 @@ module.exports = {
             resolve: `gatsby-plugin-sitemap`,
             options: {
                 createLinkInHead: true,
+                exclude: [`/search`, `/confirm-email`, `/report-contact`],
                 query: `
                 {
                   site {
@@ -162,6 +163,14 @@ module.exports = {
             },
         },
         'gatsby-plugin-robots-txt',
+        {
+            resolve: `gatsby-plugin-recaptcha`,
+            options: {
+                async: true,
+                defer: true,
+                args: `?onload=onloadCallback&render=explicit`,
+            },
+        },
     ],
     siteMetadata: {
         siteUrl: 'https://ince.guru'

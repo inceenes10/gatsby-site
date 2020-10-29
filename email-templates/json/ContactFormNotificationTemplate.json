@@ -1,0 +1,6 @@
+{
+  "TemplateName": "ContactFormNotificationTemplate",
+  "TextPart": "Hello Enes, you have a contact form notification from {{fullname}}",
+  "SubjectPart": "Information About Contact Form",
+  "HtmlPart": "<h1>Hello Enes, my name is {{fullname}}</h1><p>{{description}}</p><p>{{#if website}}{{website}}{{/if}}</p><p>{{email}}</p>"
+}

@@ -45,24 +45,21 @@ class Footer extends React.Component {
                 "Content-Type": "application/json"
             }
         })
-            .then(result => {
+            .then(() => {
                 AlertBox.success({
-                    title: t("success"),
-                    text: t("success_message")
+                    title: t("subscribe_email.success"),
+                    text: t("subscribe_email.success_message")
                 })
             })
             .catch((e) => {
-                console.log(e.response)
                 AlertBox.error({
-                    title: t("error"),
-                    text: t("error_message")
+                    title: t("subscribe_email.error"),
+                    text: t("subscribe_email.error_message")
                 })
             })
             .finally(() => {
                 loadingSpanner.style.display = "none";
             })
-
-        console.log(data);
 
         return false;
     }

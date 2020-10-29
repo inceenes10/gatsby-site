@@ -1,4 +1,4 @@
-{,
+{
   "TemplateName": "EmailConfirmation",
   "SubjectPart": "Please Confirm Your Subscription",
   "TextPart": "Hello {{fullname}}, Please click the button below to confirm that {{email}} is the correct email address to recieve my emails",

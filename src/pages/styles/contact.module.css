@@ -56,8 +56,12 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    max-width: 45ch;
     flex-basis: 45ch;
+}
+
+.container form h1 {
+    color: rgba(0,0,0,0.7);
+    font-size: 28px;
 }
 
 .container label {
@@ -96,10 +100,30 @@
 }
 
 
+.g-recaptcha--error {
+    color: #ff4436;
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.g-recaptcha--error.active {
+    margin-top: 10px;
+    height: auto;
+    visibility: visible;
+    opacity: 1;
+}
+
 @media (max-width: 720px) {
     .container {
         flex-direction: column-reverse;
         gap: 50px;
+    }
+    .contact-info--container {
         align-items: center;
+    }
+    .container form {
+        flex-basis: 90%;
     }
 }
