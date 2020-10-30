@@ -1,6 +1,6 @@
 import React from "react";
 import axios from 'axios';
-import styles from "./styles/confirm-email.module.css";
+import styles from "./styles/purepage-style.module.css";
 import { Link } from "gatsby";
 import { Helmet } from "react-helmet";
 
@@ -23,7 +23,7 @@ function ConfirmEmail(props) {
                     "Content-Type": "application/json"
                 }
             })
-                .then((result) => {
+                .then(() => {
                     successField.current.classList.add(styles.active);
                 })
                 .catch(e => {
