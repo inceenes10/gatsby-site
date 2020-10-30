@@ -120,26 +120,26 @@ function ContactPage(props) {
                             </div>
                         </div>
                         <AutoForm onSubmit={submitContactForm} trimOnSubmit>
-                            <h1>How Can I Help You?</h1>
+                            <h1>Nasıl Yardımcı Olabilirim?</h1>
                             <p style={{ lineHeight: 1.5, marginBottom: 10 }}>
-                                If you have any questions, just fill the contact form and I will answer you in a very short time.
+                                Herhangi bir sorun varsa, sadece formu doldur ve bana gönder, en kısa zamanda sana dönüş yapacağım.
                             </p>
                             <label htmlFor="fullname">
-                                <span>Fullname</span>
-                                <input type="text" id="fullname" placeholder="Fullname" required={true}/>
+                                <span>İsim Soyisim</span>
+                                <input type="text" id="fullname" placeholder="İsim Soyisim" required={true}/>
                             </label>
                             <label htmlFor="email">
-                                <span>Email Address</span>
+                                <span>Email Adresiniz</span>
                                 <input type="email" id="email" placeholder="Email" required={true}/>
                             </label>
                             <label htmlFor="website">
-                                <span>Website (Optional)</span>
+                                <span>Website (İsteğe bağlı)</span>
                                 <input type="text" id="website" placeholder="Website" pattern="^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$" title="This must be url"/>
                             </label>
 
                             <label htmlFor="description">
-                                <span>Description</span>
-                                <TextareaAutosize id="description" placeholder="Description" required={true}></TextareaAutosize>
+                                <span>Mesajınız</span>
+                                <TextareaAutosize id="description" placeholder="Mesajınız" required={true}></TextareaAutosize>
                             </label>
                             <div>
                                 <Recaptcha
@@ -148,10 +148,10 @@ function ContactPage(props) {
                                     verifyCallback={verifyCallback}
                                 />
                                 <div className={styles.gRecaptchaError} ref={gRecaptchaErrorField}>
-                                    Please, verify that you're not a robot
+                                    Lütfen robot olmadığınızı doğrulayın
                                 </div>
                             </div>
-                            <input type="submit" value="Send"/>
+                            <input type="submit" value="GÖNDER"/>
                             <input type="reset" ref={resetButton} value="reset" style={{ height: 0, width: 0, padding:0, position: "absolute", top: -1000 }}/>
                         </AutoForm>
                     </div>
