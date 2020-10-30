@@ -15,6 +15,7 @@
 .container p, .container h1, .container a {
     color: rgba(255, 255, 255, .87);
     margin-top: 20px;
+    line-height: 1.5;
 }
 
 .container a {

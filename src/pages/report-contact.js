@@ -74,14 +74,14 @@ class ReportContact extends React.Component {
                         }}>Go to Home Page → 🏠️</Link>
                     </div>
                     <div className={styles.messageContainer} ref={this.errorField}>
-                        <h1>When adding your email address to my list, an undefined error occured</h1>
+                        <h1>An undefined error occured</h1>
                         <p>
-                            Please, <Link to="/" style={{ color: "#e57373" }}>Go to Home Page → 🏠️</Link>
-                            and refill the form and resubscribe
+                            Please, mail to <a
+                            href="mailto:inceenes10@gmail.com"
+                            style={{ color: "#e57373" }}>inceenes10@gmail.com</a> to report that
+                            you didn't send the message to him on the contact page of this website
                         </p>
-                        <p>
-                            Thank you for your interest
-                        </p>
+                        <Link to="/" style={{ color: "#e57373" }}>Go to Home Page → 🏠️</Link>
                     </div>
                 </div>
             </div>
