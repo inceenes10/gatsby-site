@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import AutoForm from "react-auto-form";
 import './footer.css';
 import { getDefaultLanguage, useTranslation } from "../../Hooks/Translation"
@@ -13,8 +12,6 @@ import GithubIcon from "../../images/social-media-icons/github.svg";
 import PatreonIcon from "./social-media-icons/patreon.svg";
 import axios from "axios";
 import AlertBox from "../AlertBox/AlertBox";
-import Recaptcha from "react-recaptcha";
-import styles from "../../pages/styles/contact.module.css"
 
 class Footer extends React.Component {
 

@@ -46,7 +46,7 @@ class SearchPage extends React.Component {
 
     componentDidMount() {
 
-        
+
 
         const searchParams = new URLSearchParams(this.props.location.search);
 
