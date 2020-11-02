@@ -13,10 +13,10 @@ import GithubIcon from "../../images/social-media-icons/github.svg";
 import PatreonIcon from "./social-media-icons/patreon.svg";
 import axios from "axios";
 import AlertBox from "../AlertBox/AlertBox";
-
+import Recaptcha from "react-recaptcha";
+import styles from "../../pages/styles/contact.module.css"
 
 class Footer extends React.Component {
-
 
 
     constructor(props) {
@@ -26,8 +26,10 @@ class Footer extends React.Component {
     }
 
 
+
     handleEmailSubmitForm = (event, data) => {
         event.preventDefault();
+
         const API_URL = "https://api.ince.guru/e/SendEmailMailboxConfirmation";
 
         const { t } = useTranslation()
@@ -51,7 +53,7 @@ class Footer extends React.Component {
                     text: t("subscribe_email.success_message")
                 })
             })
-            .catch((e) => {
+            .catch(() => {
                 AlertBox.error({
                     title: t("subscribe_email.error"),
                     text: t("subscribe_email.error_message")

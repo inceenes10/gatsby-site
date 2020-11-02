@@ -5,6 +5,15 @@ const query = `query ($q: String!, $lang: String!) {
                        items {
                            title
                            description
+                           category {
+                               name
+                               lang
+                               slug
+                           }
+                           image
+                           slug
+                           youtubeVideo
+                           createdAt
                        }
                    }
                }`;

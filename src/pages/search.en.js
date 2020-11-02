@@ -1,18 +1,9 @@
 import React from "react";
-import {
-    getDefaultLanguage,
-    localesInfo,
-    setDefaultLanguage,
-    setTranslation,
-    useTranslation
-} from "../Hooks/Translation"
+import { getDefaultLanguage, setDefaultLanguage, setTranslation, } from "../Hooks/Translation";
 import SEO from "../components/seo";
 import { PageContextProvider } from "../Context/PageContext";
 import en from "../translations/en/layout";
 import tr from "../translations/tr/layout";
-import moment from "moment";
-import LocalizedLink from "../components/LocalizedLink/LocalizedLink";
-import { Link } from "gatsby";
 import query from "../Helpers/search-query";
 import CloseIcon from "../images/close.svg";
 import SearchIcon from "../images/search.svg";
@@ -21,6 +12,7 @@ import styles from "./styles/search-page.module.css";
 import Layout from "../layouts";
 import Amplify, { API } from "aws-amplify";
 import awsconfig from "../aws-exports";
+import Post from "../components/Post/Post";
 Amplify.configure(awsconfig);
 
 setTranslation({
@@ -36,8 +28,6 @@ class SearchPage extends React.Component {
 
     variables = { q: "" };
 
-
-    //q = new URLSearchParams(this.props.location.search).get("q");
     constructor(props) {
 
         super(props);
@@ -46,20 +36,23 @@ class SearchPage extends React.Component {
         this.fetchSearchData = this.fetchSearchData.bind(this);
         this.loadMoreData = this.loadMoreData.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
+        this.graphQLWithTimeout = this.graphQLWithTimeout.bind(this);
 
         this.searchInput = React.createRef();
         this.loadingField = React.createRef();
-
+        this.noResultField = React.createRef();
+        this.timeoutField = React.createRef();
     }
 
     componentDidMount() {
 
         const searchParams = new URLSearchParams(this.props.location.search);
-        this.q = searchParams.get("q");
 
-        this.searchInput.current.value = this.q;
+        this.variables.q = searchParams.get("q");
 
-        if (document.readyState === "complete" && this.q)
+        this.searchInput.current.value = this.variables.q;
+
+        if (document.readyState === "complete" && this.variables.q)
             this.fetchSearchData();
     }
 
@@ -67,20 +60,61 @@ class SearchPage extends React.Component {
         this.searchInput.current.focus();
     }
 
-    async fetchSearchData() {
+
+    graphQLWithTimeout(promise, ms, onTimeout) {
+
+        const timer = new Promise((resolve) => {
+            setTimeout(resolve, ms, {
+                timeout: true,
+            });
+        });
+        return Promise.race([
+            promise,
+            timer
+        ]).then(response => {
+            if (response.timeout) {
+                onTimeout();
+            }
+            return response;
+        });
+    }
+
+    fetchSearchData() {
 
         this.loadingField.current.style.display = "block";
-        const lang = getDefaultLanguage()
+        this.noResultField.current.style.display = "none";
+        this.timeoutField.current.style.display = "none";
 
-        const articles = await API.graphql({
+        const lang = getDefaultLanguage();
+
+
+        const searchArticlesQuery = API.graphql({
             query: query, variables: { ...this.variables, lang }
-        });
+        })
 
-        console.log(articles);
+        this.graphQLWithTimeout(searchArticlesQuery, 5000, () => {
+            this.timeoutField.current.style.display = "block";
+        })
+            .then(({ data: { searchArticles } }) => {
+                const articles = searchArticles.items;
 
-        this.setState(articles);
+                this.noResultField.current.style.display = articles.length > 0 ? "none" : "block";
 
-        this.loadingField.current.style.display = "none";
+                window.history.pushState({}, null, `/${lang}/search?q=${encodeURIComponent(this.variables.q)}`)
+                document.title = `Search Results For ${this.variables.q} | Enes Ince`;
+
+                this.setState({
+                    articles
+                });
+            })
+            .catch(() => {
+                this.setState({
+                    articles: []
+                })
+            })
+            .finally(() => {
+                this.loadingField.current.style.display = "none";
+            })
 
     }
 
@@ -129,8 +163,32 @@ class SearchPage extends React.Component {
                                 </div>
                             </AutoForm>
 
-                            <div ref={this.loadingField} style={{ display: "none" }}>
-                                Loading...
+
+                            <div className="posts" style={{ marginTop: 30 }}>
+
+                                <div ref={this.loadingField} className={styles.loadingContainer}>
+                                    <div className={styles.skChase} >
+                                        <div className={styles.skChaseDot}></div>
+                                        <div className={styles.skChaseDot}></div>
+                                        <div className={styles.skChaseDot}></div>
+                                        <div className={styles.skChaseDot}></div>
+                                        <div className={styles.skChaseDot}></div>
+                                        <div className={styles.skChaseDot}></div>
+                                    </div>
+                                </div>
+
+
+                                <div className={styles.error} ref={this.noResultField}>I am sorry, nothing found</div>
+
+                                <div className={styles.error} ref={this.timeoutField}>Timeout, please check your internet connection</div>
+
+                                {
+                                    this.state.articles.map(article => {
+                                        return (
+                                            <Post article={article} key={Math.random()}></Post>
+                                        )
+                                    })
+                                }
                             </div>
 
                         </div>
