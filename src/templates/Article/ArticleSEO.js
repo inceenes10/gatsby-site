@@ -15,7 +15,7 @@ const ArticleSEO = (props) => {
     return (
         <Layout>
             <Helmet htmlAttributes={{ lang }} title={article.title}>
-                <meta property="og:site_name" content="Enes ince bir yazılımcının blogu" />
+                <meta property="og:site_name" content="Mr. Ince Guru" />
                 <meta name='google-site-verification' content='6Xuuvn3jJvUPQiePGr0eqjRTZ2mQxI7_q6dJLMD7A5s'/>
                 <meta name="description" content={metadata.description} />
                 <meta name="keywords" content={metadata.keywords.join(", ")} />

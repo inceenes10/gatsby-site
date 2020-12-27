@@ -1,0 +1,10 @@
+
+.hash-link {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+.hash-link:hover {
+    color: rgba(0, 0, 0, 0.6);
+}

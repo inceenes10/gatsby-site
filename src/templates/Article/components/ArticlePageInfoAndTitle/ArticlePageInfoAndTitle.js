@@ -23,7 +23,7 @@ function ArticlePageInfoAndTitle(props) {
 
 
     return (
-        <div>
+        <div className={styles.title}>
             <h1>{props.children}</h1>
             <div className={styles.pageInfoContainer}>
                 <Link className={styles.category} to={`/${article.category.lang}/category/${article.category.slug}`}>{article.category.name}</Link>

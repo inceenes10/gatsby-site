@@ -6,29 +6,55 @@ const categories = {
             "name": 'Yazılım Geliştirme',
             "subCategories": [
                 {
-                    "name": 'Veri Yapıları Ve Algoritmalar',
-                    "slug": 'veri-yapilari-ve-algoritmalar'
+                    "name": 'C++ Dersleri',
+                    "slug": 'cpp-dersleri'
                 }
             ]
         },
         {
-            "name": 'Kitap Tavsiyeleri',
-            "slug": 'kitap-tavsiyeleri'
+            "name": "Derin öğrenme",
+            "subCategories": [
+                {
+                    "name": "Sıfırdan Derin Öğrenme",
+                    "slug": "sifirdan-derin-ogrenme"
+                },
+                {
+                    "name": "Tensorflow Dersleri",
+                    "slug": "tensorflow-dersleri"
+                },
+                {
+                    "name": "PyTorch Dersleri",
+                    "slug": "pytorch-dersleri"
+                }
+            ]
         }
     ],
     "en": [
         {
-            "name": 'Software Development',
+            "name": "Software Development",
             "subCategories": [
                 {
-                    "name": 'Data Structures And Algorithms',
-                    "slug": 'data-structures-and-algorithms'
+                    "name": "C++ Tutorials",
+                    "slug": "cpp-tutorials"
                 }
             ]
         },
         {
-            "name": 'Book Suggestions',
-            "slug": 'book-suggestions'
+            "name": "Deep Learning",
+            "subCategories": [
+                {
+                    "name": "Deep Learning From Zero",
+                    "slug": "deep-learning-from-zero"
+                },
+                {
+                    "name": "Tensorflow",
+                    "slug": "tensorflow"
+                },
+                {
+                    "name": "PyTorch",
+                    "slug": "pytorch"
+                }
+            ]
         }
     ]
 }

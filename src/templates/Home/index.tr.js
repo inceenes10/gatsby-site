@@ -20,9 +20,9 @@ class Home extends React.Component {
 
             <PageContextProvider pageContext={{...this.props.pageContext, location: this.props.location, lang}}>
                 <SEO metadata={{
-                    title: "Enes Ince | Electrical Engineering Student, Software Developer",
-                    description: "",
-                    keywords: [],
+                    title: "Mr. Ince Guru | Yazılım Geliştirici | Elektrik Mühendisliği Öğrencisi",
+                    description: "Merhaba ben İTÜ Elektrik mühendisliği öğrencisi Enes İnce. Bana Mr. Ince Guru da diyebilirsin. Blogumda yazılım, AWS, derin öğrenme ve makine öğrenimi ve akıllı şebekelerle ilgili içerikler paylaşıyorum",
+                    keywords: ["enes ince", "ince guru", "yazılımcı enes", "enes derin öğrenme", "mr ince guru", "enes ince itü", "enes itü", "aws enes", "amazon web servisleri enes"],
                     type: "website"
                 }}>
                     <Layout>

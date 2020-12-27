@@ -110,7 +110,7 @@ class Footer extends React.Component {
                             <a href="https://twitter.com/inceenes10" target="_blank" rel="noopener noreferrer">
                                 <img src={TwitterIcon} alt="Twitter" width="30"/>
                             </a>
-                            <a href="https://www.instagram.com/inceenes10/" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.instagram.com/mr.ince.guru/" target="_blank" rel="noopener noreferrer">
                                 <img src={InstagramIcon} alt="Instagram" width="30"/>
                             </a>
                             <a href="https://github.com/inceenes10" target="_blank" rel="noopener noreferrer">

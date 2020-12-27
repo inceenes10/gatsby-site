@@ -12,6 +12,8 @@ function HashTitle(props) {
         event.preventDefault();
         const el = event.target;
         const hash = el.getAttribute("data-hash");
+        if (!hash)
+            return;
         const title = document.title;
         const url = `${window.location.origin}${window.location.pathname}#${hash}`;
         window.history.pushState({}, title, url);

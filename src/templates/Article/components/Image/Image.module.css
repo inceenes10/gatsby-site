@@ -1,0 +1,15 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 65ch !important;
+}
+
+.image {
+    max-width: 65ch !important;
+}
+
+.caption {
+    color: rgba(0, 0, 0, 0.6);
+}

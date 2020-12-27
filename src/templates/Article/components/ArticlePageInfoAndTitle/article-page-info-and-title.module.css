@@ -1,12 +1,16 @@
 
 
+.title {
+    line-height: 1.5;
+}
+
 .page-info--container {
     display: flex;
     gap: 10px;
     font-size: 13px;
     flex-wrap: wrap;
     line-height: 20px;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .page-info--container > * {
