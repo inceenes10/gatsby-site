@@ -62,16 +62,18 @@ function Article(props) {
     const tags = props.pageContext.article.tags.items.map(item => {
         return item.tags;
     });
+
+
 /*
     article.metadata = {
-        description: "In this article",
-        keywords: ["Deep Learning", "Prerequisites for deep learning", "Deep learning applications", "Basic deep learning application", "Neural networks", "Neuron", "Deep neural networks"],
-        title: "Deep Learning 101: What is Deep Learning? Prerequisites For Deep Learning",
-        twitterCardType: null, // default: "summary_large_image"
-        image: {
-            image700: "https://ince-guru-files.s3.eu-central-1.amazonaws.com/deep-learning-files/deep-learning-101-diagram.png",
-            width: 800,
-            height: 600
+        "description": "In this article, we're gonna write an tensorflow application",
+        "keywords": ["Deep Learning", "Prerequisites for deep learning", "Deep learning applications", "Basic deep learning application", "Neural networks", "Neuron", "Deep neural networks"],
+        "title": "Deep Learning 101: What is Deep Learning? Prerequisites For Deep Learning",
+        "twitterCardType": null, // default: "summary_large_image"
+        "image": {
+            "image700": "https://ince-guru-files.s3.eu-central-1.amazonaws.com/deep-learning-files/deep-learning-101-diagram.png",
+            "width": 800,
+            "height": 600
         }
     }
 
@@ -143,6 +145,7 @@ function Article(props) {
     <p>If you have any question about deep learning after reading this article, please leave a comment. I will reach out to you in a very short time.</p>  
 `;
 */
+
     return (
 
         <PageContextProvider pageContext={{...props.pageContext, location: props.location}}>
